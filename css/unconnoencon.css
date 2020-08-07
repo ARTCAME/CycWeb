@@ -1,0 +1,236 @@
+@charset "utf-8";
+
+/*
+-Autor/Author................Arturo Casas (arzzz@hotmail.es)
+-Descripción/Description.....Hoja de estilos principal y única para páginas auxiliares/Main and unique stylesheet for maintenance and error pages
+-Versión/Version.............0.0
+-Ayuda para la lectura/
+Help reading.................TODOS los elementos están ordenados alfabéticamente dentro de sus apartados (por ejemplo: header o footer) y siempre de selector menos específico a más específico, pseudo-clases y eventos. Todos los selectores están anidados hasta su raíz excepto clases o elementos que compartan estilos en varios documentos/EVERY element is alphabetically ordered inside her group (i.e: header or footer) and from lower to more specific, followed by pseudo-classes and events. Selectors are nested in all of its parents
+-Llamada desde/Called from...404.html, uncon.html, precursorbrowser.html
+-Actúa sobre/Affects on......404.html, uncon.html, precursorbrowser.html
+*/
+
+/* Carga de fuente alojada en el servidor */
+@font-face {
+    font-family: "pt_serifitalic";
+    font-style: normal;
+    font-weight: normal;    
+    src: url("../fonts/PT-Serif/ptserif_italic_macroman/PTF56F-webfont.eot");
+    src: url("../fonts/PT-Serif/ptserif_italic_macroman/PTF56F-webfont.eot?#iefix") format("embedded-opentype"),
+         url("../fonts/PT-Serif/ptserif_italic_macroman/PTF56F-webfont.woff") format("woff"),
+         url("../fonts/PT-Serif/ptserif_italic_macroman/PTF56F-webfont.ttf") format("truetype"),
+         url("../fonts/PT-Serif/ptserif_italic_macroman/PTF56F-webfont.svg#pt_serifitalic") format("svg");
+}
+
+/* Estilos para todos los elementos */
+* {
+    font-family: "pt_serifitalic";
+    font-size: 15px;
+}
+
+/* Estilo común para enlaces */
+a {
+    outline: none!important;
+    border: none!important;
+    color: rgba(102,0,0,1);
+    color: rgb(102,0,0);
+    text-decoration: none;
+}
+
+body {
+    background-color: rgba(220,220,220,1);
+    background-color: rgb(220,220,220);
+    margin: 0;
+    position: relative;
+}
+
+body,
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Elemento que mantendrá el <footer> siempre en la parte inferior de la pantalla */
+div.pega-footer {
+    box-sizing: border-box;
+    min-height: 100%;
+    position: relative;
+}
+
+/* Estilos para que a la imagen de fondo no se le permita scroll */
+div.aux-contenedor-fondo { overflow: hidden; }
+
+/* Estilos para ajustar la imagen de fondo */
+div.aux-contenedor-fondo img.aux-fondo { width: 100%; }
+
+/* Estilos comunes para mantener la relación de aspecto y el centrado de todos los elementos de la página */
+div.aux-contenedor-fondo,
+div.aux-contenedor-fondo p,
+div.aux-contenedor-logo {
+    margin: 0 auto;
+    max-width: 690px;
+    text-align: center;
+}
+
+/* Estilo para párrafo */
+div.aux-contenedor-fondo p {
+    margin: 0;
+    z-index: 9;
+}
+
+/* Estilos para párrafo que contiene o mensaje de error o información relevante */
+div.aux-contenedor-fondo p strong {
+    font-size: 20px!important;
+}
+
+/* Estilo para la imagen logo */
+div.aux-contenedor-logo img.aux-logo { width: 95%; }
+
+/* Estilos para contenedor de información de contacto y mapa */
+div.aux-formas-contacto {
+    border-bottom: 60px solid transparent;
+    margin: 0 auto;
+    margin-top: 10px;
+    max-width: 690px;
+    padding: 0 10px 10px;
+    position: relative;
+    text-align: center;
+    width: 90%;
+}
+
+/* Estilos para los datos de contacto */
+div.aux-formas-contacto div.contacto {
+    font-family: "pt_serifitalic";
+    font-size: 15px;
+}
+
+/* Estilos específicos del nombre de empresa */
+div.aux-formas-contacto div.contacto span.contacto-dire span span.nombre {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* Estilos para la zona de mapa */
+div.aux-formas-contacto div.mapa-estatico { 
+    height: 350px;
+    margin-top: 25px; 
+    max-width: 690px;
+}
+
+/* Estilos para posicionar absolutamente elementos contenidos */
+div.aux-formas-contacto div.mapa-estatico div.contenedor-mapa { position: relative; }
+
+/* Estilos para el <iframe> que muestra el mapa */
+div.aux-formas-contacto div.mapa-estatico div.contenedor-mapa iframe {
+    border: 0;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 2px 5px 1px rgba(0,0,0,.5);
+    box-shadow: 0px 2px 5px 1px rgba(0,0,0,.5);
+    box-shadow: 0px 2px 5px 1px rgb(0,0,0);
+    display: none;
+    height: 350px;
+    width: 100%;
+}
+
+div.contenedor-imprimir.aux div.formas-contacto-imprimir { display: none!important; }
+
+/* Estilos para <footer> */
+div.contenedor-imprimir.aux div.pie-imprimir { 
+    margin: 0 auto; 
+    max-width: 690px;
+    width: 95%;
+}
+
+/* Estilo para párrafo que hace de pie de página */
+div.contenedor-imprimir.aux div.pie-imprimir div.pie-charcu {
+    font-family: "pt_serifitalic";
+    font-size: 14px;
+    line-height: 50px;
+    text-align: center;
+}
+
+/* Estilos para enlace a términos y condiciones */
+div.contenedor-imprimir.aux div.pie-imprimir div.pie-charcu a.aux-terminos { 
+    border: 1px solid transparent!important; /* Edge */
+    box-sizing: border-box; /* Edge */
+    font-size: 14px!important; 
+}
+
+/* Estilos para contenedor logo Handmade by Art en precursorbrowser.html */
+div.contenedor-imprimir.aux.oldie div.pie-imprimir div.pie-charcu { float: left; }
+    
+/* Estilos para contenedor logo Handmade by Art*/
+div.contenedor-imprimir.aux div.pie-imprimir div.pie-hdmd { text-align: center; }
+
+/* Estilos para contenedor de logo charcu en precursorbrowser.html */
+div.contenedor-imprimir.aux.oldie div.pie-imprimir div.pie-hdmd { float: right; }
+
+/* Estilos para logo */
+div.contenedor-imprimir.aux div.pie-imprimir div.pie-hdmd a img.aux-imgpie-hmbyart { 
+    border: none!important; /* IE */
+    height: 50px; 
+    margin-bottom: -15px; 
+}
+
+/*---------------------------------------------------------------------- 
+NO JAVASCRIPT */
+
+/*
+ * NOTA: Internet Explorer no aplica estilos a los elementos especificándolos como anidados por lo que se rompe 
+ * la norma de indicar toda la anidación para los elementos dentro de <noscript>
+ */
+
+/* Mapa sin Javascript */
+/* Estilos para el elemento contenedor */
+noscript.ns-mapa {
+    height: 100%;
+    margin: 0 auto;
+    max-width: 720px;
+    max-height: 720px;
+    position: absolute; left: 0; top: 0;
+    width: 100%;
+}
+
+/* Estilos para el elemento <a> que dirige a Google Maps al clicar sobre mapa, contiene <img> del mapa */
+a.link-imgmapa {
+    background-size: cover;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 2px 5px 1px rgba(0,0,0,.5);
+    box-shadow: 0px 2px 5px 1px rgba(0,0,0,.5);
+    box-shadow: 0px 2px 5px 1px rgb(0,0,0);
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    padding-bottom: 50%;
+    position: relative;
+    width: 100%;
+}
+
+/* Estilos para la imagen estática del mapa */
+a.link-imgmapa img.imgmapa {
+    height: 720px;
+    margin-left: -360px; /* La mitad del ancho */
+    margin-top: -360px; /* La mitad de la altura */
+    position: absolute; left: 50%; top: 50%;
+    width: 720px;
+}
+
+/*---------------------------------------------------------------------- 
+FIN NO JAVASCRIPT */
+
+/*---------------------------------------------------------------------- 
+MEDIA QUERIES */
+
+@media all and (min-width: 540px) {
+
+    /* Estilos para contenedor de logo charcu en precursorbrowser.html */
+    div.contenedor-imprimir.aux div.pie-imprimir div.pie-charcu { float: left; }
+    
+    /* Estilos para contenedor logo Handmade by Art */
+    div.contenedor-imprimir.aux div.pie-imprimir div.pie-hdmd { float: right; }
+
+}
+
+/*---------------------------------------------------------------------- 
+MEDIA QUERIES */

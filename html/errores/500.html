@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="rgba(0,0,0,1)"> <!-- Para teñir el encabezado y barra de búsqueda en android -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link id="favicon" rel="shortcut icon" href="../../img/logos/favicon.png" type="image/png">
+    <link rel="stylesheet" type="text/css" href="../../css/unconnoencon.css">
+    <link rel="stylesheet" type="text/css" href="../../css/imprimir.css" media="print">
+    <title>Charcutería C&amp;C - Error de conexión</title>
+    <style type="text/css">
+        /* Estilos para el contenedor de mensaje de cookies */
+        #cookies-contenedor {
+            background-color: rgba(255,255,255,.9);
+            border-bottom: 1px solid rgba(0,0,0,1);
+            border-top: 1px solid rgba(0,0,0,1);
+            -webkit-box-shadow: 0 0 15px 0 rgba(0,0,0,.75); 
+            box-shadow: 0 0 15px 0 rgba(0,0,0,.75);
+            display: none; 
+            color: black;
+            font-family: "pt_serifitalic";
+            font-size: 14px;
+            height: auto;
+            padding: 10px 0;
+            position: fixed; left: 0; bottom: 90px;
+            text-align: center;
+            transition: all .5s;
+            width: 100%;
+            z-index: 999999998; 
+        }
+    </style>
+</head>
+<body>
+    <div class="pega-footer">
+    	<div class="aux-contenedor-logo">
+            <img alt="Logo charcutería c&amp;c minimal" class="aux-logo" src="../../img/logos/logocycminimal.png">
+            <!--<img alt="Logo charcutería c&amp;c minimal Navidad" class="aux-logo" src="../../img/logos/logocycminimalnavidad.png">-->
+        </div>
+        <div class="aux-contenedor-fondo">
+            <p><strong>ERROR 500</strong><br>Parece que existe algún problema con la conexión al servidor.<br><br>Visítanos en <a href="http://www.charcuteriacyc.es" title="Ir a www.charcuteriacyc.es">www.charcuteriacyc.es</a></p>
+            <img alt="Charcutería dibujo" class="aux-fondo" src="../../img/404aux/charcu.png">
+        </div>
+        <div class="aux-formas-contacto">
+            <p><strong>Puedes encontrarnos en:</strong></p>
+            <div itemscope itemtype="http://schema.org/LocalBusiness" class="contacto">
+                <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress" class="contacto-dire">
+                    <span translate="no">
+                        <span itemprop="name" class="nombre">Charcutería C&amp;C</span><br>
+                        <span itemprop="streetAddress">Avenida de Madrid 223,</span><br>
+                        <span itemprop="postalCode">50017, </span>
+                        <span itemprop="addressLocality">Zaragoza</span>
+                    </span>
+                </span>
+                <p class="contacto-hora">Horario de apertura:<br>
+                    <span itemprop="openingHours"><strong>Lunes a viernes: </strong>9:00 - 14:00 y 17:00 - 20:30</span><br>
+                    <span itemprop="openingHours"><strong>Sábados: </strong>9:00 - 14:00</span>
+                </p>
+                <span class="contacto-telf">Teléfono: <a itemprop="telephone" onclick="return (navigator.userAgent.match(/Android|iPhone|iPad|iPod|Mobile/i))!=null;"  href="tel:+34976338237">976 33 82 37</a></span><br>
+                <span class="contacto-mail">Correo electrónico: <a itemprop="email" href="mailto:contacto@charcuteriacyc.es">contacto@charcuteriacyc.es</a></span>
+            </div>
+            <div class="mapa-estatico">
+                <div class="contenedor-mapa">
+                    <!--[if lte IE 9]>
+                    <a class="link-imgmapa" href="https://www.google.es/maps/place/Charcuter%C3%ADa+C%26C/@41.6519445,-0.9103557,17.7z/data=!4m8!1m2!2m1!1scharcuteria+c+c,+zaragoza!3m4!1s0x0:0x9493e993b3120e77!8m2!3d41.6519169!4d-0.9106307" target="_blank">
+                            <img class="imgmapa" src="https://maps.googleapis.com/maps/api/staticmap?center=Avenida+Madrid+223,+Zaragoza&zoom=17&scale=2&size=800x800&maptype=roadmap&key=AIzaSyDPfCCZWxMxTJMt4haC7fpTE3-I8e71dCY&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xc93638%7Clabel:%7CCharcutería+CyC,+Avenida+Madrid+223,+50017+zaragoza" alt="Charcutería C&amp;C, Avenida Madrid 223, Zaragoza" title="Abrir en Google Maps">
+                        </a>
+                    <![endif]-->
+                    <iframe class="mapa-noscript" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2981.1770474809714!2d-0.9128254484874169!3d41.65191657913888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd596b315713182b%3A0x9493e993b3120e77!2sCharcuter%C3%ADa+C%26C!5e0!3m2!1ses!2ses!4v1499347562678" allowfullscreen></iframe>
+                    <noscript class="ns-mapa">
+                        <a class="link-imgmapa" href="https://www.google.es/maps/place/Charcuter%C3%ADa+C%26C/@41.6519445,-0.9103557,17.7z/data=!4m8!1m2!2m1!1scharcuteria+c+c,+zaragoza!3m4!1s0x0:0x9493e993b3120e77!8m2!3d41.6519169!4d-0.9106307" target="_blank">
+                            <img class="imgmapa" src="https://maps.googleapis.com/maps/api/staticmap?center=Avenida+Madrid+223,+Zaragoza&zoom=17&scale=2&size=800x800&maptype=roadmap&key=AIzaSyDPfCCZWxMxTJMt4haC7fpTE3-I8e71dCY&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xc93638%7Clabel:%7CCharcutería+CyC,+Avenida+Madrid+223,+50017+zaragoza" alt="Charcutería C&amp;C, Avenida Madrid 223, Zaragoza" title="Abrir en Google Maps">
+                        </a>
+                    </noscript>
+                </div>
+            </div>
+        </div>
+        <script>
+            /* Función que muestra <iframe> contenedor de mapa cuando hay Javascript */
+            window.onload = function() {
+                document.getElementsByClassName("mapa-noscript")[0].style.display = "block";
+            }
+        </script>
+        <!-- Elemento solo visible en la vista de impresión -->
+        <div class="contenedor-imprimir aux">
+            <div class="formas-contacto-imprimir">
+                <div class="contacto-dire-imprimir">
+                    <span class="localizacion-imprimir" translate="no">
+                        <span><strong>Charcutería C&amp;C</strong></span><br>
+                        <span>Avenida de Madrid 223,</span><br>
+                        <span>50017, Zaragoza </span>
+                    </span>
+                    <p class="contacto-hora-imprimir"><strong>Horario de apertura:</strong><br>
+                        <span><strong>Lunes a viernes: </strong>9:00 - 14:00 y 17:00 - 20:30</span><br>
+                        <span><strong>Sábados: </strong>9:00 - 14:00</span>
+                    </p>
+                    <span class="contacto-telf-imprimir">Teléfono: 976 33 82 37</span><br>
+                    <span class="contacto-mail">Correo electrónico: contacto@charcuteriacyc.es</span>
+                </div>
+                <img class="imgmapa-imprimir" src="https://maps.googleapis.com/maps/api/staticmap?center=Avenida+Madrid+223,+Zaragoza&zoom=16&scale=2&size=300x245&maptype=roadmap&key=AIzaSyDPfCCZWxMxTJMt4haC7fpTE3-I8e71dCY&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xc93638%7Clabel:%7CCharcutería+CyC,+Avenida+Madrid+223,+50017+zaragoza" alt="Charcutería C&amp;C, Avenida Madrid 223, Zaragoza" title="Abrir en Google Maps">
+            </div>
+            <div class="pie-imprimir">
+                <div class="pie-charcu">
+                    <a class="aux-terminos" title="Ver términos y condiciones" href="../../html/auxiliar/terminos.html" target="_blank">Términos y condiciones </a>
+                    - &copy; 2017 · Charcutería C&amp;C
+                </div>
+                <div class="pie-hdmd">
+                    <a href="#">
+                        <img class="aux-imgpie-hmbyart" src="../../img/handmade/HandmadeByArt.png" alt="Handmade By Art" title="Hecho a mano">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="cookies-contenedor">
+        <div>Para mejorar tu experiencia de navegación utilizamos cookies. Al continuar con tu visita entendemos que lo aceptas.<a href="html/auxiliar/terminos.html#politica-cookies" target="_blank" title="Ver términos y condiciones"> Más información.</a><br><strong><a onclick="PonerCookie();" href="javascript:void(0);" id="ok-cookies" title="Continuar navegando">Aceptar</a></strong></div>
+    </div>
+    <script type="text/javascript">
+        /* Funciones para añadir cookie para saber si usuario ha aceptado las cookies...*/
+        function getCookie(c_name){
+            var c_value = document.cookie;
+            var c_start = c_value.indexOf(" " + c_name + "=");
+            if (c_start == -1){
+                c_start = c_value.indexOf(c_name + "=");
+            }
+            if (c_start == -1){
+                c_value = null;
+            }else{
+                c_start = c_value.indexOf("=", c_start) + 1;
+                var c_end = c_value.indexOf(";", c_start);
+                if (c_end == -1){
+                    c_end = c_value.length;
+                }
+                c_value = unescape(c_value.substring(c_start,c_end));
+            }
+            return c_value;
+        }
+        function setCookie(c_name,value,exdays){
+            var exdate = new Date();
+            exdate.setDate(exdate.getDate() + exdays);
+            var c_value = escape(value) + ((exdays == null) ? "" : "; expires=" + exdate.toUTCString());
+            document.cookie = c_name + "=" + c_value;
+        }
+         
+        if(getCookie('avisocuki') != "1"){
+            document.getElementById("cookies-contenedor").style.display = "block";
+        }
+        function PonerCookie(){
+            setCookie('avisocuki','1',365);
+            document.getElementById("cookies-contenedor").style.display = "none";
+        }
+    </script>
+</body>
+</html>

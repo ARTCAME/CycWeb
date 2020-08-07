@@ -1,0 +1,542 @@
+@charset "utf-8";
+
+/*
+-Autor/Author................Arturo Casas (arzzz@hotmail.es)
+-Descripción/Description.....Hoja de estilos complementaria a estilos.css para página de contacto/Complementary to estilos.css for contact page
+-Versión/Version.............0.0
+-Ayuda para la lectura/
+Help reading.................TODOS los elementos están ordenados alfabéticamente dentro de sus apartados (por ejemplo: header o footer) y siempre de selector menos específico a más específico, pseudo-clases y eventos. Todos los selectores están anidados hasta su raíz excepto clases o elementos que compartan estilos en varios documentos/EVERY element is alphabetically ordered inside her group (i.e: header or footer) and from lower to more specific, followed by pseudo-classes and events. Selectors are nested in all of its parents
+-Llamada desde/Called from...estilos.css
+-Actúa sobre/Affects on......contacto.html
+*/
+
+/* Carga de fuente alojada en el servidor */
+@font-face {
+    font-family: "pt_serifregular";
+    font-style: normal;
+	font-weight: normal;
+    src: url("../fonts/PT-Serif/ptserif_regular_macroman/PTF55F-webfont.eot");
+    src: url("../fonts/PT-Serif/ptserif_regular_macroman/PTF55F-webfont.eot?#iefix") format("embedded-opentype"),
+         url("../fonts/PT-Serif/ptserif_regular_macroman/PTF55F-webfont.woff") format("woff"),
+         url("../fonts/PT-Serif/ptserif_regular_macroman/PTF55F-webfont.ttf") format("truetype"),
+         url("../fonts/PT-Serif/ptserif_regular_macroman/PTF55F-webfont.svg#pt_serifregular") format("svg");
+}
+
+/* Carga de fuente alojada en el servidor */
+@font-face {
+    font-family: "pt_serifitalic";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/PT-Serif/ptserif_italic_macroman/PTF56F-webfont.eot");
+    src: url("../fonts/PT-Serif/ptserif_italic_macroman/PTF56F-webfont.eot?#iefix") format("embedded-opentype"),
+         url("../fonts/PT-Serif/ptserif_italic_macroman/PTF56F-webfont.woff") format("woff"),
+         url("../fonts/PT-Serif/ptserif_italic_macroman/PTF56F-webfont.ttf") format("truetype"),
+         url("../fonts/PT-Serif/ptserif_italic_macroman/PTF56F-webfont.svg#pt_serifitalic") format("svg");
+}
+
+div#main-contacto * { 
+	font-family: "pt_serifregular";
+	font-size: 14px; 
+}
+
+/* Estilos para contenedor de información de contacto y mapa */
+div#main-contacto div#formas-contacto {
+	box-sizing: border-box;
+	margin-bottom: 10px!important;
+	opacity: 0; /* Animación */
+	padding: 0 10px 10px;
+	position: relative;
+}
+
+/* Estilos comunes para todos los elementos de la página */
+div#main-contacto div#formas-contacto, 
+div#main-contacto form {
+	-webkit-animation: 1s aparecer 0s forwards;
+	animation: 1s aparecer 0s forwards;
+	border: 1px solid rgba(0,0,0,.2);	
+	margin: 10px;
+}
+
+/* Estilos para los datos de contacto */
+div#main-contacto div#formas-contacto div#contacto {
+	margin-top: 20px;
+	text-align: center;	
+}
+
+/* Estilos específicos del nombre de empresa */
+div#main-contacto div#formas-contacto div#contacto span#contacto-dire span#nombre-charcu {
+	font-size: 20px!important;
+	font-weight: bold;
+}
+
+/* Estilos para la zona de mapa */
+div#main-contacto div#formas-contacto div#mapa-estatico { margin-top: 10px; }
+
+/* Reseteo de todas las transiciones en la zona de mapa y sus anidados */
+div#main-contacto div#formas-contacto div#mapa-estatico * { transition: unset!important; } /* Quita transición height */ 
+
+/* Estilo para contenedor del mapa */
+div#main-contacto div#formas-contacto div#mapa-estatico div#contenedor-mapa { position: relative; } /* Para position: absolute de sus anidados */
+
+/* Estilos para insertar botón invisible que se mostrará con Javascrit y en evento :checked*/
+div#main-contacto div#formas-contacto div#mapa-estatico div#contenedor-mapa button { 
+	background: url("../img/logos/favicon.png") center no-repeat, rgba(255,255,255,1);
+	background-size: 80%;
+	border: 0;
+	border-radius: 3px;
+	-webkit-box-shadow: 0 2px 6px 0 rgba(0,0,0,.3);
+	box-shadow: 0 2px 6px 0 rgba(0,0,0,.3);
+	height: 42px;
+	opacity: 0;
+	position: absolute; bottom: 74.5px; left: 10px;
+	width: 42px; }
+
+/* Estilos para botón al producirse evento :checked y añadirse clase con Javascript */
+div#main-contacto div#formas-contacto div#mapa-estatico div#contenedor-mapa button.mostrar-boton { 
+	opacity: 1; 
+	transition: opacity .5s .5s, background-color .2s!important;
+}
+
+/* Estilos para botón mostrado con Javascript, en eventos */
+div#main-contacto div#formas-contacto div#mapa-estatico div#contenedor-mapa button.mostrar-boton:active,
+div#main-contacto div#formas-contacto div#mapa-estatico div#contenedor-mapa button.mostrar-boton:focus,
+div#main-contacto div#formas-contacto div#mapa-estatico div#contenedor-mapa button.mostrar-boton:hover { background-color: rgba(220,220,220,1); }
+
+/* Estilos para el <iframe> que muestra el mapa */
+div#main-contacto div#formas-contacto div#mapa-estatico div#contenedor-mapa iframe {
+	border: 0;
+	border-radius: 3px;
+	-webkit-box-shadow: 0px 2px 5px 1px rgba(0,0,0,.5);
+    box-shadow: 0px 2px 5px 1px rgba(0,0,0,.5);
+	display: none; /* Oculto por defecto, se muestra con Javascript */
+	height: 350px;
+	width: 100%;
+}
+
+/* Estilos para el contenedor de los elementos del formulario */
+div#main-contacto form {
+	padding-top: 10px;
+	position: relative; /* Para position: absolute de elementos <noscript> */
+}
+
+/* Estilos comunes para todos los elementos del formulario */
+div#main-contacto form * {
+}
+
+/* Estilos para contenedor de resultado y elementos de "carga" */
+div#main-contacto form div#resultado-formu {
+	background-color: rgba(255,255,255,.2);
+	display: none; /* Oculto, lo mostrará la respuesta del formulario en Javascript */
+	height: 100%;
+	position: absolute; right: 0; top: 0;
+	width: 100%;
+}
+
+/* Estilos comunes para elementos de "carga" */
+div#main-contacto form div#resultado-formu div#cargante-dos,
+div#main-contacto form div#resultado-formu div#cargante-uno {
+	border: 21px solid transparent;
+	border-radius: 50%;
+	height: 120px;
+	margin: auto;
+	position: absolute; bottom: 10%; left: 0; right: 0;
+	width: 120px;
+}
+
+/* Estilos específicos para elementos de "carga" */
+div#main-contacto form div#resultado-formu div#cargante-dos {
+	border-bottom: 21px solid rgba(102,0,0,.5);	
+	border-top: 21px solid rgba(102,0,0,.7);
+}
+
+div#main-contacto form div#resultado-formu div#cargante-dos.aCargar {
+	-webkit-animation: giraIzquierda 2s cubic-bezier(.17,.67,.85,0) infinite;
+	animation: giraIzquierda 2s cubic-bezier(.17,.67,.85,0) infinite;
+}
+
+/* Estilos específicos para elementos de "carga" */
+div#main-contacto form div#resultado-formu div#cargante-uno {
+	border-bottom: 21px solid rgba(102,0,0,.8);
+	border-left: 21px solid rgba(102,0,0,.2);
+	border-right: 21px solid rgba(102,0,0,.6);
+	border-top: 21px solid rgba(102,0,0,.4);
+}
+
+div#main-contacto form div#resultado-formu div#cargante-uno.aCargar {
+	-webkit-animation: giraDerecha 1s cubic-bezier(.17,.67,.85,0) infinite;
+	animation: giraDerecha 1s cubic-bezier(.17,.67,.85,0) infinite;
+}
+
+/* Estilos comunes para los elementos que muestran el resultado del envío del formulario */
+div#main-contacto form div#resultado-formu div[class^=resultado] {
+	border: 2px solid;
+	background-color: rgba(180,180,180,1);
+	-webkit-box-shadow: 0 0 3px 0 rgba(0,0,0,1); 
+	box-shadow: 0 0 3px 0 rgba(0,0,0,1); 
+	box-sizing: border-box;	
+	margin: 0 auto;
+	margin-top: 10px;
+	padding: 10px 5px;
+	position: absolute; left: 10%; bottom: 25%;
+	text-align: center;
+	width: 80%;
+	-webkit-user-select: none; 
+	-moz-user-select: none; 
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/* Estilos comunes para el elemento de "cerrar" que se muestra en los elementos del resultado del envío del formulario */
+div#main-contacto form div#resultado-formu div[class^=resultado] span.cerrar {
+	background-color: rgba(102,0,0,1);
+	color: rgba(180,180,180,1);
+	cursor: pointer;
+    font-size: 25px;
+    height: 20px;
+    line-height: 20px;
+    position: absolute; right: 5px; top: -20px; /* Usando porcentajes se mueve con el cuadro y no "a parte" */
+    text-align: center;
+    -webkit-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none;
+    user-select: none; 
+    width: 25px;
+}
+
+/* Estilos específicos para cada tipo de resultado */
+div#main-contacto form div#resultado-formu div.resultado { border-color: rgba(102,51,0,1); } /* Naranja */
+div#main-contacto form div#resultado-formu div.resultado-correcto { border-color: rgba(0,102,51,1); } /* Verde */
+div#main-contacto form div#resultado-formu div.resultado-grave { border-color: rgba(102,0,0,1); } /* Rojo */
+
+div#main-contacto form div#resultado-formu div.resultado a:hover { color: rgba(255,255,255,1)!important; }
+
+/* Estilos para el <fieldset> del formulario */
+div#main-contacto form fieldset {
+	border: 0;	
+	margin: 0;
+	padding: 0;
+	width: 100%!important;
+}
+
+/* Estilos comunes para <fieldset> y <legend> */
+div#main-contacto form fieldset, 
+div#main-contacto form fieldset legend { text-align: center; }
+
+/* Estilos comunes para todos los elementos de la clase .requerido que se usará en Javascript y que referencia a los elementos del formulario obligatorios */
+div#main-contacto form fieldset *.requerido { 
+	-webkit-box-shadow: 0 0 1.5px 1px rgba(255,0,0,1); 
+	box-shadow: 0 0 1.5px 1px rgba(255,0,0,1); 
+}
+
+/* Estilos comunes para la clase .confirmacion que contiene los elementos checkbox "visibles" de términos y privacidad y publicidad */
+div#main-contacto form fieldset div.confirmacion {
+	margin: 0 auto;
+	margin-top: 10px;
+	position: relative;
+	text-align: left;
+	-webkit-user-select: none; 
+	-moz-user-select: none; 
+	-ms-user-select: none;
+	user-select: none; 
+	width: 300px;
+}
+
+/* Estilos comunes para los elementos contenidos en la clase .confirmacion */
+div#main-contacto form fieldset div.confirmacion * { 
+	display: inline; 
+	font-size: 14px!important;
+}
+
+/* Estilos para los input */
+div#main-contacto form fieldset div.confirmacion input { display: none; } /* Ocultos ya que el checkbox será un elemento <span> clicable */
+
+/* Estilos cuando Javascript ha añadido la clase requerido y no está marcado (añade sombreado rojo) */
+div#main-contacto form fieldset div.confirmacion input.requerido + label span { 
+	-webkit-box-shadow: 0 0 1.5px 1px rgba(255,0,0,1),
+	0 0 1px 2px rgba(0,0,0,.05), 
+	0 -15px 10px -12px rgba(0,0,0,.5) inset, 
+	0 0 0 0 rgba(255,255,255,1) inset; 
+	box-shadow: 0 0 1.5px 1px rgba(255,0,0,1), 
+	0 0 1px 2px rgba(0,0,0,.05), 
+	0 -15px 10px -12px rgba(0,0,0,.5) inset, 
+	0 0 0 0 rgba(255,255,255,1) inset; 
+}
+
+/* Estilos cuando Javascript ha añadido la clase requerido y sí está marcado (elimina sombreado rojo) */
+div#main-contacto form fieldset div.confirmacion input.requerido:active + label span, 
+div#main-contacto form fieldset div.confirmacion input.requerido:checked:active + label span,
+div#main-contacto form fieldset div.confirmacion input.requerido:checked + label span { 
+	-webkit-box-shadow: 0 0 0 0 rgba(255,0,0,1),
+	0 0 1px 2px rgba(0,0,0,.05), 
+	0 -15px 10px -12px rgba(0,0,0,.5) inset, 
+	0 1px 2px 0 rgba(255,255,255,.5) inset; 
+	box-shadow: 0 0 0 0 rgba(255,0,0,1),
+	0 0 1px 2px rgba(0,0,0,.05), 
+	0 -15px 10px -12px rgba(0,0,0,.5) inset, 
+	0 1px 2px 0 rgba(255,255,255,.5) inset; 
+}
+
+/* Estilos para los <span> que sustituyen al <input type="checkbox"> ya que permiten aplicarles formatos */
+div#main-contacto form fieldset div.confirmacion input + label span {
+	background-color: rgba(115,115,115,1);
+	border: 2px solid rgba(205,205,205,1);
+	border-radius: 3px;
+	-webkit-box-shadow: 0 0 1px 2px rgba(0,0,0,.05), 
+	0 -15px 10px -12px rgba(0,0,0,.5) inset, 
+	0 0 0 0 rgba(255,255,255,1) inset; 
+	box-shadow: 0 0 1px 2px rgba(0,0,0,.05), 
+	0 -15px 10px -12px rgba(0,0,0,.5) inset, 
+	0 0 0 0 rgba(255,255,255,1) inset;
+	display: inline-block;
+	height: 12px;
+	margin-right: 10px;
+	position: relative; top: 3px;
+	width: 12px;
+}
+
+/* Estilos para los elementos <span> en los eventos de <input> */
+div#main-contacto form fieldset div.confirmacion input:active + label span, 
+div#main-contacto form fieldset div.confirmacion input:checked:active + label span,
+div#main-contacto form fieldset div.confirmacion input:checked + label span {
+	background: rgba(102,0,0,1);
+	-webkit-box-shadow: 0 0 1px 2px rgba(0,0,0,.05), 
+	0 -15px 10px -12px rgba(0,0,0,.5) inset, 
+	0 1px 2px 0 rgba(255,255,255,.5) inset; 
+	box-shadow: 0 0 1px 2px rgba(0,0,0,.05), 
+	0 -15px 10px -12px rgba(0,0,0,.5) inset, 
+	0 1px 2px 0 rgba(255,255,255,.5) inset; 
+}
+
+/* Estilos para el contenedor del fondo que muestra la página terminos.html */
+div#main-contacto form fieldset div.contenedor-fondo {
+    -webkit-animation: aparecer .3s ease-in; 
+    animation: aparecer .3s ease-in;
+    background: url("../img/logos/logocycrepetitivo.png") rgba(0,0,0,.95);
+    display: none; /* Oculto por defecto, lo mostramos con Javascript */
+ 	height: 100%;
+    position: fixed; left: 0; top: 0; /* Posición fijada para ocupar el 100% de la pantalla del navegador */
+    text-align: center;
+    width: 100%; 
+    z-index: 99; /* Por encima de la página */
+}  
+
+/* Estilos para <iframe> que contiene la página terminos.html */
+div#main-contacto form fieldset div.contenedor-fondo iframe {
+	-webkit-animation: aparecer .3s ease-in; 
+	animation: aparecer .3s ease-in; /* Animación para igualar la aparición del iframe al de las imgs de la galería */
+	border: 0;
+	height: 90%;
+	position: absolute; left: 50%; top: 50%;
+	transform: translate(-50%,-50%);
+	width: 90%;
+}
+
+/* Estilos para el contenedor del captcha*/
+div#main-contacto form fieldset div.g-recaptcha {
+	display: block;
+	height: 76px!important;
+	margin: 15px auto;
+	overflow: hidden; /* Previene mostrar errores de compatibilidad de navegador que sobrepasan límites de contenedor */
+	width: 302px;
+}
+
+/* Estilos para quitar los que aplica por defecto Android OS */
+div#main-contacto form fieldset input { outline: none; }
+
+/* Estilos para quitar los que aplica por defecto Android OS */
+div#main-contacto form fieldset input:-webkit-autofill:valid,
+div#main-contacto form fieldset *.requerido:-webkit-autofill:valid { 
+	-webkit-box-shadow: 0 0 0 30px rgba(255,255,255,1) inset,
+	0 0 1.5px 1px rgba(0,102,51,1)!important; 
+}
+div#main-contacto form fieldset input:-webkit-autofill:invalid,
+div#main-contacto form fieldset *.requerido:-webkit-autofill:invalid { 
+	-webkit-box-shadow: 0 0 0 30px rgba(255,255,255,1) inset,
+	0 0 1.5px 1px rgba(255,0,0,1)!important; 
+}
+
+/* Estilos comunes para los <input> */
+div#main-contacto form fieldset input:not(#termycond):not(#aceptpubli):not(.boton), 
+div#main-contacto form fieldset textarea,
+div#main-contacto form fieldset input:not(#termycond):not(#aceptpubli):not(.boton):active, 
+div#main-contacto form fieldset textarea:active,
+div#main-contacto form fieldset input:not(#termycond):not(#aceptpubli):not(.boton):focus, 
+div#main-contacto form fieldset textarea:focus {
+	-webkit-appearance:none!important;
+	background-color: rgba(255,255,255,1);
+	border: 0;
+	border-radius: 3px;
+	padding: 12px;
+	width: 90%;
+}
+
+/* Estilos para los elementos obligatorios cuando sean válidos */
+div#main-contacto form fieldset input:not(#termycond):not(#aceptpubli):not(.boton):not(#apellidos):not(#telefono):valid, 
+div#main-contacto form fieldset textarea:valid {
+	-webkit-appearance:none!important;
+    -webkit-box-shadow: 0 0 1.5px 1px rgba(0,102,51,1); 
+    box-shadow: 0 0 1.5px 1px rgba(0,102,51,1);
+}
+
+/* Estilos para los elementos obligatorios cuando sean inválidos */
+div#main-contacto form fieldset input:not(#termycond):not(#aceptpubli):not(.boton).requerido:invalid, 
+div#main-contacto form fieldset textarea.requerido:invalid {
+	-webkit-appearance:none!important;
+	-webkit-box-shadow: 0 0 1.5px 1px rgba(255,0,0,1); 
+	box-shadow: 0 0 1.5px 1px rgba(255,0,0,1);
+}
+
+/* Estilos comunes para <label> que referencian a los <input>*/
+div#main-contacto form fieldset label:not(#label-term):not(#label-publi) {
+	display: inline-block;
+	margin: 10px 0 5px 0;
+	text-align: left;	
+	width: 90%;
+}
+
+/* Estilos para la leyenda del formulario */
+div#main-contacto form fieldset legend {
+	font-size: 20px!important;
+	font-weight: bold;
+	margin-top: 10px;
+	width: 100%;
+}
+
+/* Estilos específicos para el elemento textarea */
+div#main-contacto form fieldset textarea {
+	height: 200px;
+	-ms-overflow-style: none; /* Elimina barra scroll en IE */
+	resize: none;
+}
+
+/* Estilos para el contenedor del botón de envío del formulario */
+div#main-contacto form fieldset span#contenedor-boton {
+	display: block;
+	height: 50px;
+	margin: 10px 0;
+	position: relative;
+	width: 100%;
+}
+
+/* Estilos del botón de envío del formulario */
+div#main-contacto form fieldset span#contenedor-boton input.boton {
+	-webkit-appearance: none;
+	background: rgba(205,205,205,1);
+	border: 0;
+	/*-webkit-box-shadow: 0 0 0 0 rgba(204,204,204,1) inset, 
+	0 0 0 0 rgba(108,32,32,.5) inset,
+	0 0 0 0 rgba(102,0,0,1) inset,
+	0 0 0 0 rgba(204,204,204,1) inset, 
+	0 0 0 0 rgba(108,32,32,.5) inset,
+	0 0 0 0 rgba(102,0,0,1) inset;	
+	box-shadow: 0 0 0 0 rgba(204,204,204,1) inset, 
+	0 0 0 0 rgba(108,32,32,.5) inset,
+	0 0 0 0 rgba(102,0,0,1) inset,
+	0 0 0 0 rgba(204,204,204,1) inset, 
+	0 0 0 0 rgba(108,32,32,.5) inset,
+	0 0 0 0 rgba(102,0,0,1) inset;
+	transition: box-shadow .2s ease-out;*/
+	font-size: 16px;
+	z-index: 0!important;
+}
+
+/* Estilos compartidos entre el botón de envío del formulario y el <span> que lo "desactiva" */
+div#main-contacto form fieldset span#contenedor-boton input.boton, 
+div#main-contacto form fieldset span#contenedor-boton span#insiste {
+	border-radius: 1px!important;
+	cursor: pointer!important;
+	display: block;
+	height: 50px;
+	margin: 0 auto;
+	position: absolute; left: 50%;
+	transform: translateX(-50%);
+	width: 300px!important;
+	/*z-index: -1!important;*/
+}
+
+/* Estilos específicos para elemento que cubre el botón de envío del formulario para así "desactivarlo", se eliminará con Javascript */
+div#main-contacto form fieldset span#contenedor-boton span#insiste {
+	background-color: rgba(0,0,0,0.2);
+	margin-bottom: -60px!important; /* Situado encima del botón */
+	z-index: 1!important;
+}
+
+/* Reseteo de las sombras que aplica el atributo required */
+[required] { 
+	-webkit-box-shadow: none; 
+	box-shadow: none; 
+	outline: none!important; /* IE 11 */
+}
+
+/*---------------------------------------------------------------------- 
+MEDIA QUERIES */
+
+@media only screen and (min-width: 721px) {
+
+	/* Reajuste de tamaño de fuente */
+	div#main-contacto * { font-size: 16px; }
+
+} /* @media only screen and (min-width: 721px) */
+
+
+@media only screen and (min-width: 1100px) {
+
+	/* Reajuste del comportamiento de los elementos que contiene <div id="maim">, activamos flexbox*/
+	div#main-contacto {
+		display: -webkit-flex; 
+		display: flex;
+	    -webkit-flex-flow: row; 
+	    flex-flow: row; 
+	    justify-content: space-around;
+	}
+
+	/* Reajuste de los estilos de formulario y añadimos propiedades flexbox */
+	div#main-contacto form {
+		-webkit-flex: 1 2 60%; 
+		flex: 1 2 60%; 
+		margin: 10px 0 10px 10px;
+		max-width: 55%;
+		-webkit-order: 1; 
+		order: 1; 
+	}
+
+	/* Reajuste de los estilos de formulario y añadimos propiedades flexbox */
+	div#main-contacto div#formas-contacto {
+		-webkit-flex: 1 2 30%; 
+		flex: 1 2 30%; 
+		-webkit-order: 2; 
+		order: 2; 
+		margin: 10px 10px 0 10px;
+	}
+
+	/* Reajuste de tamaños en mapa */
+	/* ACTUALIZACIÓN - Al eliminar el checkbox para envío de publicidad se modifica la altura
+	div#main-contacto div#formas-contacto div#mapa-estatico { height: 665px; }*/
+	div#main-contacto div#formas-contacto div#mapa-estatico { height: 605px; }
+
+	/* Reajuste de tamaños de mapa */
+	div#main-contacto div#formas-contacto div#mapa-estatico div#contenedor-mapa {
+		height: 100%;
+		position: relative; bottom: 0px; 
+		width: 100%;
+	}
+
+	/* Reajuste de tamaños de <iframe> */
+	div#main-contacto div#formas-contacto div#mapa-estatico div#contenedor-mapa iframe {
+		height: 100%;
+		width: 100%;
+	}
+
+	/*---------------------------------------------------------------------- 
+	NO JAVASCRIPT */
+
+	/* Reajuste de tamaños para que el movimiento del mapa estático siga siendo adaptable al redimentsionar */
+	div#formas-contacto div#mapa-estatico div#contenedor-mapa noscript a { padding-bottom: 75%; }
+
+	/*---------------------------------------------------------------------- 
+	FIN NO JAVASCRIPT */
+
+} /* @media only screen and (min-width: 1100px) */
+
+/*---------------------------------------------------------------------- 
+FIN MEDIA QUERIES */

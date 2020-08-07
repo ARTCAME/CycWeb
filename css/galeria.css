@@ -1,0 +1,338 @@
+@charset "utf-8";
+
+/*
+-Autor/Author................Arturo Casas (arzzz@hotmail.es)
+-Descripción/Description.....Hoja de estilos complementaria a estilos.css para galeria/Complementary to estilos.css for image gallery page
+-Versión/Version.............0.0
+-Ayuda para la lectura/
+Help reading.................TODOS los elementos están ordenados alfabéticamente dentro de sus apartados (por ejemplo: header o footer) y siempre de selector menos específico a más específico, pseudo-clases y eventos. Todos los selectores están anidados hasta su raíz excepto clases o elementos que compartan estilos en varios documentos/EVERY element is alphabetically ordered inside her group (i.e: header or footer) and from lower to more specific, followed by pseudo-classes and events. Selectors are nested in all of its parents
+-Llamada desde/Called from...estilos.css
+-Actúa sobre/Affects on......galeria.html
+*/
+
+
+/* Carga de fuente alojada en el servidor */
+@font-face {
+    font-family: "pt_serifitalic";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/PT-Serif/ptserif_italic_macroman/PTF56F-webfont.eot");
+    src: url("../fonts/PT-Serif/ptserif_italic_macroman/PTF56F-webfont.eot?#iefix") format("embedded-opentype"),
+         url("../fonts/PT-Serif/ptserif_italic_macroman/PTF56F-webfont.woff") format("woff"),
+         url("../fonts/PT-Serif/ptserif_italic_macroman/PTF56F-webfont.ttf") format("truetype"),
+         url("../fonts/PT-Serif/ptserif_italic_macroman/PTF56F-webfont.svg#pt_serifitalic") format("svg");
+}
+
+div#main-galeria {
+    box-sizing: border-box; 
+    padding: 30px 0; /* Pisotea estilos generales */
+}
+
+/* Contenedor oculto para ampliar imágenes */
+div#main-galeria div#contenedor-ampli {
+    background: url("../img/logos/logocycrepetitivo.png"), rgba(0,0,0,.9);
+    height: 0;
+    opacity: 0;
+    position: absolute;
+    transition: opacity .3s;
+    visibility: hidden;
+    width: 0;
+    z-index: 99; /* Necesario por menú */
+} 
+
+/* Estilos para la clase añadida con Javascript que muestra el elemento */
+div#main-galeria div#contenedor-ampli.trans-galeria {
+    height: 100%;
+    min-height: 100%;
+    min-width: 100%;
+    opacity: 1;
+    position: fixed; bottom: 0; left: 0; right: 0; top: 0;
+    visibility: visible;
+    width: 100%;
+    z-index: 99; /* Necesario por menú */
+}
+
+/* Estilos comunes para lo contenido en el contenedor */
+div#main-galeria div#contenedor-ampli * {
+    background-color: rgba(0,0,0,1);
+    color: rgba(220,220,220,1);
+    font-family: "pt_serifitalic";
+    font-size: 15px;
+} 
+
+/* Estilos para elementos de navegación que desaparacen con Javascript */
+div#main-galeria div#contenedor-ampli .ocultable { transition: opacity .2s ease-out!important; }
+
+/* Estilos para el elemento que muestra descripción de imagen */
+div#main-galeria div#contenedor-ampli div#caption { 
+    background-color: rgba(0,0,0,.8);
+    border-radius: 3px;
+    height: auto;
+    line-height: 25px;
+    position: absolute; bottom: 10px; left: 50%;
+    text-align: center;
+    transform: translate(-50%,-10px);
+    -webkit-user-select: none; 
+    -moz-user-select: none;
+    -ms-user-select: none; 
+    user-select: none; 
+    width: 50%;
+}
+
+/* Estilos para elemento que contiene foto ampliada y elementos de navegación */
+div#main-galeria div#contenedor-ampli div#contenedor-img-nav {
+    background-color: rgba(0,0,0,0);
+    max-height: 90%;
+    overflow: hidden;
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%,-50%);
+    width: 95%;
+}
+
+/* Estilos comunes para los <a> que avanzan y retroceden imágenes */
+div#main-galeria div#contenedor-ampli div#contenedor-img-nav a {
+    background-color: rgba(0,0,0,.8);
+    border-radius: 50%;
+    font-size: 25px;
+    height: 40px;
+    line-height: 40px;
+    position: absolute; top: 50%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* NO ESTÀNDAR: elimina el resaltado al clicar/pulsar en Android OS */
+    text-align: center;
+    transition: color 0s;
+    transform: translateY(-50%);
+    -webkit-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
+    width: 40px;
+}
+
+/* Estilo específico para el elemento de retroceder imágenes */
+div#main-galeria div#contenedor-ampli div#contenedor-img-nav a.anterior { /*position: absolute;*/ left: 1%; }
+
+/* Estilo específico para el elemento de avanzar imágenes */
+div#main-galeria div#contenedor-ampli div#contenedor-img-nav a.siguiente { /*position: absolute;*/ right: 1%; }
+
+/* Estilos comunes para los <a> que avanzan y retroceden imágenes cuando se pulsa sobre ellos*/
+div#main-galeria div#contenedor-ampli div#contenedor-img-nav a:active { 
+    background-color: rgba(220,220,220,1); 
+    color: rgba(0,0,0,.8)!important;
+}
+
+/* Estilos para la imagen ampliada */
+div#main-galeria div#contenedor-ampli div#contenedor-img-nav img.imagen-ampli {
+    -webkit-animation: .5s aparecerImg .05s forwards; 
+    animation: .5s aparecerImg .05s forwards;
+    max-height: 100%;
+    opacity: 0; /* Animación */
+    padding: 0;
+    -webkit-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none;
+    user-select: none; 
+    width: 100%;
+}
+
+/* Estilos para la imagen ampliada cuando se añade clase con Javascript que se usa para animar la "aparición" de la imagen y que complementa a la de la clase .imagen-ampli (es necesario añadir y quitar animaciones de diferente nombre pero iguales para que el efecto se produzca en cada carga de imágenes) */
+div#main-galeria div#contenedor-ampli div#contenedor-img-nav img.imagen-ampli.fadder { 
+    -webkit-animation: .5s aparecer .05s forwards;
+    animation: .5s aparecer .05s forwards;
+    opacity: 0; /* Animación */
+}
+
+/* Estilos para contenedor de aspa de cerrar */
+div#main-galeria div#contenedor-ampli div#contenedor-img-nav span#cerrar {
+    background-color: rgba(0,0,0,.8);
+    border: 0;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: arial;
+    font-size: 45px;
+    height: 30px;
+    line-height: 30px;
+    margin: 0;
+    padding: 0;
+    position: absolute; right: 1%; top: 1%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* NO ESTÀNDAR: elimina el resaltado al clicar/pulsar */
+    text-align: center;
+    transition: opacity .2s ease-out;
+    -webkit-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none;
+    width: 30px;
+    z-index: 99;
+}
+
+div#main-galeria div#contenedor-ampli div#contenedor-img-nav span#cerrar:active,
+div#main-galeria div#contenedor-ampli div#contenedor-img-nav span#cerrar:hover {
+    background-color: rgba(220,220,220,1); 
+    color: rgba(102,0,0,1)!important;
+    opacity: 1!important;
+}
+
+/* Estilos para el contenedor que muestra el total de diapositivas y la actual */
+div#main-galeria div#contenedor-ampli span#cual {
+    background-color: rgba(0,0,0,.8);
+    border-radius: 3px;
+    height: 30px;
+    line-height: 30px;
+    position: absolute; left: 50%; top: 10px;
+    text-align: center;
+    transform: translate(-50%, 10px);
+    width: 80px;
+    z-index: 99;
+}
+
+/* Estilos para añadir fondo */
+div#main-galeria div#contenedor-galeria {
+    background: url("../img/cargandoHD.gif") center 100px no-repeat;
+    background-size: 50%;
+    pointer-events: none;
+    transition: 0s .3s;
+}
+
+/* Si no hay Javascript se elimina el fondo del elemento */
+div#main-galeria.noscript div#contenedor-galeria { background: none!important; }
+
+/* Estilos para eliminar el fondo al añadir clase con Javascript*/
+div#main-galeria div#contenedor-galeria.galeria-cargada {
+    background: url("../img/cargandoHD.gif") center 100px no-repeat;
+    background-size: 0%;
+    pointer-events: auto;
+}
+
+/* Si no hay Javascript se elimina el fondo del elemento */
+div#main-galeria.noscript div#contenedor-galeria.galeria-cargada { background: none!important; }
+
+/* Estilos generales para la table que contiene las imágenes en miniatura */
+div#main-galeria div#contenedor-galeria table.galeria-mini {
+	border-collapse: collapse; /* Si no colapsamos se muestra un borde mínimo [!] */
+    display: block;
+    opacity: 0;    
+    padding: 0;
+	width: 100%;
+}
+
+/* Si no hay Javascript se muestran los contenidos */
+div#main-galeria.noscript div#contenedor-galeria table.galeria-mini { opacity: 1; }
+
+/* Estilos comunes para los elementos <td> de la tabla */
+div#main-galeria div#contenedor-galeria table.galeria-mini tr td { padding: 1px;/* Espacio entre las imágenes */ } 
+
+/* Estilos que, manteniendo la relación de aspecto limitan el tamaño para evitar redimensión si los elementos se encontrasen sin contenido */
+div#main-galeria div#contenedor-galeria table.galeria-mini tr td.td-grande {
+    height: 66.66%!important;
+    width: 66.66%!important;
+}
+
+/* Estilos que, manteniendo la relación de aspecto limitan el tamaño para evitar redimensión si los elementos se encontrasen sin contenido */
+div#main-galeria div#contenedor-galeria table.galeria-mini tr td.td-pequeño {
+    height: 33.33%!important;
+    width: 33.33%!important;
+}
+
+/* Estilos para el contenedor de las imágenes en miniatura */
+div#main-galeria div#contenedor-galeria table.galeria-mini tr td div.expandir { 
+    -webkit-backface-visibility:hidden;
+    background-position: center;
+    background-size: 0%; /* Fondo con tamaño para que al hacer hover crezca en el centro */
+    height: 0; /* Mantiene la altura del contenedor aún sin contenido */
+    padding-bottom: 56.25%; /* Mantiene la altura del contenedor aún sin contenido */ 
+    position: relative;
+    transition: .3s .3s ease-out;
+} 
+
+/* Estilos para contenedor de las imágenes en miniatura cuando se añade clase con Javascript que indica que se han cargado los elementos */
+div#main-galeria div#contenedor-galeria table.galeria-mini tr td div.expandir.si { 
+    background: url("../img/iconos/expandir.png") center no-repeat; /* Añadimos imagen a fondo solo en hover para que no se muestre cuando no corresponde */
+    background-position: center;
+    background-size: 0%; /* Fondo con tamaño para que al hacer hover crezca en el centro */
+    transition: .3s .3s ease-out; 
+}
+
+/* Estilos en eventos para contenedor de las imágenes en miniatura cuando se añade clase con Javascript que indica que se han cargado los elementos  */
+div#main-galeria div#contenedor-galeria table.galeria-mini tr td:hover div.expandir.si { 
+    background: url("../img/iconos/expandir.png") center no-repeat; /* Añadimos imagen a fondo solo en hover para que no se muestre cuando no corresponde */
+    background-position: center;
+    background-size: 20%; /* Fondo con tamaño para que al hacer hover crezca en el centro */
+    transition: .4s ease-out, background-size 0.1s;
+}
+
+/* Estilos para las imágenes en pequeño */
+div#main-galeria div#contenedor-galeria table.galeria-mini tr td div.expandir img.imagen-mini {
+    cursor: pointer;
+	display: block; /* img rellena td completamente */ 
+	height: auto;
+    opacity: 1;
+	padding: 0;
+    position: relative;
+    transition: .3s .3s ease-out;
+    width: 100%;
+}
+
+/* Estilos para eventos sobre las imágenes en pequeño */
+div#main-galeria div#contenedor-galeria table.galeria-mini tr td:hover + div.expandir img.imagen-mini.img-cargada,
+div#main-galeria div#contenedor-galeria table.galeria-mini tr td div.expandir img.imagen-mini.img-cargada:hover {
+	opacity: .7;
+    transition: .2s ease-out;
+}
+
+/* Estilos para clase añadida con Javascript a las imágenes que no se han cargado correctamente */
+div#main-galeria div#contenedor-galeria table.galeria-mini tr td div.expandir img.imagen-mini.img-error {
+    background: url("../img/logos/logocycrepetitivogris.png") repeat;
+    font-family: "pt_serifitalic";
+    font-size: 12px;
+    cursor: auto;
+    height: 0;
+    padding-bottom: 56.25%;
+    text-align: center;
+}
+
+/*---------------------------------------------------------------------- 
+MEDIA QUERIES */
+
+@media only screen and (max-width: 430px) {
+
+    div#main-galeria div#contenedor-ampli div#contenedor-img-nav a {
+        font-size: 20px;
+        height: 30px;
+        line-height: 30px;
+        width: 30px;
+    }
+
+    div#main-galeria div#contenedor-ampli div#contenedor-img-nav span#cerrar {
+        font-size: 45px;
+        height: 30px;
+        line-height: 30px;
+        width: 30px;
+    }
+}
+
+@media only screen and (min-width: 1100px) {
+   
+    div#main-galeria div#contenedor-ampli div#contenedor-img-nav { width: 80%; }
+
+    div#main-galeria div#contenedor-galeria {
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+
+    div#main-galeria div#contenedor-galeria table.galeria-mini { 
+        -webkit-flex: 1 1 50%;
+        -ms-flex: 1 1 50%;
+        flex: 1 1 50%;
+        /*max-width: 50%;*/
+    }
+
+    div#main-galeria div#contenedor-galeria table.galeria-mini tr td div.expandir img.imagen-mini.img-error { font-size: 14px; }
+
+} /* @media only screen and (min-width: 1100px) */
+
+/*---------------------------------------------------------------------- 
+FIN MEDIA QUERIES */

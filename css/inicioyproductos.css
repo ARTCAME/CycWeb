@@ -1,0 +1,359 @@
+@charset "utf-8";
+
+/*
+-Autor/Author................Arturo Casas (arzzz@hotmail.es)
+-Descripción/Description.....Hoja de estilos complementaria a estilos.css para página de inicio y productos/Complementary to estilos.css for home and "productos"
+-Versión/Version.............0.0
+-Ayuda para la lectura/
+Help reading.................TODOS los elementos están ordenados alfabéticamente dentro de sus apartados (por ejemplo: header o footer) y siempre de selector menos específico a más específico, pseudo-clases y eventos. Todos los selectores están anidados hasta su raíz excepto clases o elementos que compartan estilos en varios documentos/EVERY element is alphabetically ordered inside her group (i.e: header or footer) and from lower to more specific, followed by pseudo-classes and events. Selectors are nested in all of its parents
+-Llamada desde/Called from...estilos.css
+-Actúa sobre/Affects on......inicio.html, productos.html
+*/
+
+/* Carga de fuente alojada en el servidor */
+@font-face {
+    font-family: "pt_serifregular";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/PT-Serif/ptserif_regular_macroman/PTF55F-webfont.eot");
+    src: url("../fonts/PT-Serif/ptserif_regular_macroman/PTF55F-webfont.eot?#iefix") format("embedded-opentype"),
+         url("../fonts/PT-Serif/ptserif_regular_macroman/PTF55F-webfont.woff") format("woff"),
+         url("../fonts/PT-Serif/ptserif_regular_macroman/PTF55F-webfont.ttf") format("truetype"),
+         url("../fonts/PT-Serif/ptserif_regular_macroman/PTF55F-webfont.svg#pt_serifregular") format("svg");
+}
+
+/* Carga de fuente alojada en el servidor */
+@font-face {
+    font-family: "pt_serifitalic";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/PT-Serif/ptserif_italic_macroman/PTF56F-webfont.eot");
+    src: url("../fonts/PT-Serif/ptserif_italic_macroman/PTF56F-webfont.eot?#iefix") format("embedded-opentype"),
+         url("../fonts/PT-Serif/ptserif_italic_macroman/PTF56F-webfont.woff") format("woff"),
+         url("../fonts/PT-Serif/ptserif_italic_macroman/PTF56F-webfont.ttf") format("truetype"),
+         url("../fonts/PT-Serif/ptserif_italic_macroman/PTF56F-webfont.svg#pt_serifitalic") format("svg");
+}
+
+/*---------------------------------------------------------------------- 
+COMUNES inicio.html y productos.html */
+
+/* Activación de animación para elementos de contenido texto */
+.animated-in { 
+	opacity: 0; /* animation */
+}
+
+.animated-in:nth-child(1) {
+	-webkit-animation: .8s fadeInProd .2s 1 forwards;
+	animation: .8s fadeInProd .2s 1 forwards;
+}
+
+.animated-in:nth-child(2) {
+	-webkit-animation: .6s fadeInProd .4s 1 forwards;
+	animation: .6s fadeInProd .4s 1 forwards;
+}
+
+.animated-in:nth-child(3) {
+	-webkit-animation: .8s fadeInProd .2s 1 forwards;
+	animation: .8s fadeInProd .2s 1 forwards;
+}
+
+/* Estilos comunes para los <article> */
+div[id^="main"] article {
+ 	font-family: "pt_serifregular";
+	font-size: 14px;
+	margin: 0 15px 15px 15px!important;
+	text-align: center;
+}
+
+/*---------------------------------------------------------------------- 
+FIN COMUNES inicio.html y productos.html */
+
+
+/*---------------------------------------------------------------------- 
+inicio.html */
+
+/* Estilos para <div> que contiene todos los elementos */
+div#main-inicio {
+	display: -webkit-flex; 
+	display: flex;
+    -webkit-flex-flow: column; 
+    flex-flow: column;
+}
+
+/* Estilos de posicionamiento específicos */
+div#main-inicio article#inicio-principal {
+	-webkit-flex: 3 1 auto; 
+	flex: 3 1 auto;
+	-webkit-order: -1; 
+	order: -1; 
+}
+
+/* Estilos de posicionamiento específicos */
+div#main-inicio article#inicio-secundaria { 
+	-webkit-flex: 0 1 auto; 
+	flex: 0 1 auto; 
+	-webkit-order: 3; 
+	order: 3; 
+}
+
+/* Estilos para <aside> que contiene la galería de imágenes para inicio.html */
+div#main-inicio aside#inicio-aside {
+	-webkit-animation: .5s aparecer .05s both;
+    animation: .5s aparecer .05s both;
+	background: url("../img/cargandoHD.gif") center 10% no-repeat;
+    background-size: 50%;
+    height: auto;
+    opacity: 0;
+	-webkit-order: 2; 
+	order: 2; 
+	pointer-events: none;
+	position: relative;
+    transition: background-size 0s 1.5s;
+}
+
+/* Estilos cuando no hay Javascript para no mostrar el fondo */
+div#main-inicio aside#inicio-aside.noscript { background: none!important; }
+
+/* Estilos para eliminar el fondo al añadir clase con Javascript*/
+div#main-inicio.galeria-inicio-cargada aside#inicio-aside {
+    background: url("../img/cargandoHD.gif") center 10% no-repeat;
+    background-size: 0%;
+    pointer-events: auto;
+}
+
+/* Estilos para <a> que dirige a galeria.html */
+div#main-inicio aside#inicio-aside a {
+	background-color: rgba(115,115,115,.7);
+	font-family: "pt_serifitalic";
+	font-size: 14px;
+	height: 0; /* Sin altura para que crezca en eventos */
+	overflow: hidden;
+	position: absolute; left: 0; top: 0;
+	text-align: center;
+	text-decoration: none;
+	visibility: hidden; /* Oculto por defecto, se muestra en eventos */
+	width: 100%;
+	z-index: 1;
+}
+
+/* Estilos para <a> que dirige a galeria.html en eventos */
+div#main-inicio aside#inicio-aside:active a,
+div#main-inicio aside#inicio-aside:focus a,
+div#main-inicio aside#inicio-aside:hover a { 
+	-webkit-box-shadow: 0 2px 5px 1px rgba(0,0,0,.75); 
+	box-shadow: 0 2px 5px 1px rgba(0,0,0,.75);
+	height: 24px; /* Se añade altura para que "crezca" */
+	line-height: 24px;
+	transition: box-shadow .3s .5s, color .2s ease-out, text-shadow .2s, height .3s .5s!important;	
+	visibility: visible; /* Se muestra */
+}
+
+div#main-inicio aside#inicio-aside a:active,
+div#main-inicio aside#inicio-aside a:focus,
+div#main-inicio aside#inicio-aside a:hover { text-shadow: 2px 2px 3px rgba(0,0,0,1); }
+
+
+/* Estilos para <iframe> que carga las imágenes de galeria-embed.html para inicio.html */
+div#main-inicio aside#inicio-aside iframe {
+	border: 0;
+	height: 100%;
+	min-height: 350px;
+	opacity: 0;
+	width: 100%;
+}
+
+/* Clase que, si no hay Javascript, muestra el elemento */
+div#main-inicio aside#inicio-aside.noscript iframe { opacity: 1; }
+
+/*---------------------------------------------------------------------- 
+FIN inicio.html */
+
+
+/*---------------------------------------------------------------------- 
+productos.html */
+
+/* Estilos para contenedor principal en productos.html */
+div#main-productos { 
+	display: -webkit-flex; 
+	display: flex;
+    -webkit-flex-flow: column; 
+    flex-flow: column;
+}
+
+/* Estilos para contenedor de texto de presentación */
+div#main-productos article#productos-presentacion { 
+	margin: 15px;
+	-webkit-order: 1;
+	order: 1;  
+}
+
+/* Estilos para contenedor de carrusel de productos */
+div#main-productos div#contenedor-productos-galeria { 
+	-webkit-order: 2;
+	order: 2;  
+}
+
+/* Estilos para contenedor de textos descriptivos */
+div#main-productos div#contenedor-productos-galeria div#productos-textos {
+	display: block;
+	font-family: "pt_serifregular";
+	margin: 0 auto;
+	max-width: 1200px;
+	position: relative;
+	text-align: left;
+	width: 100%;
+}
+
+/* Estilos comunes para los elementos individuales de productos */
+div#main-productos div#contenedor-productos-galeria div#productos-textos div * {
+	background-color: rgba(205,205,205,.7);
+	box-sizing: border-box;
+	padding-left: 15px;
+	text-align: left;
+	width: 100%;
+}
+
+/* Estilos para cada uno de los textos descriptivos */
+div#main-productos div#contenedor-productos-galeria div#productos-textos div[id^="productos-textos"] {
+	background-size: cover!important;
+	-webkit-box-shadow: 0px 2px 5px 1px rgba(0,0,0,.5);
+    box-shadow: 0px 2px 5px 1px rgba(0,0,0,.5);
+	margin-bottom: 15px;
+	opacity: 0;
+	position: relative;
+}
+
+div#main-productos div#contenedor-productos-galeria div#productos-textos div#productos-textos-adobos { 
+	-webkit-animation: .7s fadeInProd .3s 1 forwards;
+	animation: .7s fadeInProd .3s 1 forwards;
+	background: url("../img/productos/Adobos_Vientos_Buque.jpg") center no-repeat; 
+}
+
+div#main-productos div#contenedor-productos-galeria div#productos-textos div#productos-textos-conservas { 
+	-webkit-animation: .8s fadeInProd .2s 1 forwards;
+	animation: .8s fadeInProd .2s 1 forwards;
+	background: url("../img/productos/Conservas_surtidas.jpg") center no-repeat; 
+}
+
+div#main-productos div#contenedor-productos-galeria div#productos-textos div#productos-textos-embutidos { 
+	-webkit-animation: .9s fadeInProd .1s 1 forwards;
+	animation: .9s fadeInProd .1s 1 forwards;
+	background: url("../img/productos/Embutidos_surtidos.jpg") center no-repeat; 
+}
+
+div#main-productos div#contenedor-productos-galeria div#productos-textos div#productos-textos-jamones {	
+	-webkit-animation: .6s fadeInProd .4s 1 forwards;
+	animation: .6s fadeInProd .4s 1 forwards;
+	background: url("../img/productos/Jamones_Aragon_reserva.jpg") center no-repeat; 
+}
+
+div#main-productos div#contenedor-productos-galeria div#productos-textos div#productos-textos-lotes { 
+	-webkit-animation: .5s fadeInProd .5s 1 forwards;
+	animation: .5s fadeInProd .5s 1 forwards;
+	background: url("../img/productos/Lotes_cestas_regalos.jpg") center no-repeat; 
+}
+
+div#main-productos div#contenedor-productos-galeria div#productos-textos div#productos-textos-quesos { 
+	-webkit-animation: .6s fadeInProd .4s 1 forwards;
+	animation: .6s fadeInProd .4s 1 forwards;
+	background: url("../img/productos/Quesos_surtidos.jpg") center no-repeat; 
+}
+
+div#main-productos div#contenedor-productos-galeria div#productos-textos div#productos-textos-servicios {	
+	-webkit-animation: .3s fadeInProd .7s 1 forwards;
+	animation: .3s fadeInProd .7s 1 forwards;
+	background: url("../img/productos/La_tienda.jpg") 50% 20% no-repeat; 
+}
+
+div#main-productos div#contenedor-productos-galeria div#productos-textos div#productos-textos-vinos { 
+	-webkit-animation: .9s fadeInProd .1s 1 forwards;
+	animation: .9s fadeInProd .1s 1 forwards;
+	background: url("../img/productos/Cavas_champagne_surtidos.jpg") center no-repeat; 
+}
+
+/* Estilos para los títulos de los textos descriptivos */
+div#main-productos div#contenedor-productos-galeria div#productos-textos div h2 {
+	color: rgba(0,0,0,1);
+	font-family: "pt_serifitalic";
+	font-size: 20px;
+	font-weight: bold;
+	height: 60px;
+	line-height: 60px;
+	margin: 0 auto;
+	/*position: absolute; left: 0;*/ top: 0;
+	text-shadow: 1px 1px 3px rgba(0,0,0,.5);
+	width: 100%;
+}
+
+div#main-productos div#contenedor-productos-galeria div#productos-textos div p {
+	margin: 0;
+	padding: 15px 15px 30px 15px;
+}
+
+/*---------------------------------------------------------------------- 
+FIN productos.html */
+
+
+/*---------------------------------------------------------------------- 
+MEDIA QUERIES */
+
+@media only screen and (min-width: 500px) {
+	
+	/* Reajuste de altura para inicio.html */
+	div#main-inicio aside#inicio-aside iframe { 
+		height: 275px; 
+		min-height: 275px; 
+	}
+
+} /* @media only screen and (min-width: 500px) */
+
+@media only screen and (min-width: 721px) {
+
+	/* Reajuste de tamaño de fuente */
+	div[id^="main"] article,
+	div#main-productos div#contenedor-productos-galeria div#productos-textos { font-size: 18px; }
+
+	/* Reajuste de altura para inicio.html */
+	div#main-inicio aside#inicio-aside iframe { min-height: 375px; }
+
+} /* @media only screen and (min-width: 720px) */
+
+@media only screen and (min-width: 900px) {
+	
+	/* Reajuste de altura para inicio.html*/
+	div#main-inicio aside#inicio-aside iframe { 
+		height: 475px; 
+		min-height: 475px; 
+	}
+
+} /* @media only screen and (min-width: 900px) */
+
+@media only screen and (min-width: 1100px) {
+
+	/* Reajuste de posicionamiento y medidas para inicio.html */
+	div#main-inicio aside#inicio-aside { height: 600px; }
+
+	/* Reajuste de estilos para <iframe> que carga galería para inicio.html */
+	div#main-inicio aside#inicio-aside iframe { 
+		height: 100%; 
+		min-height: 0;
+	}
+
+} /* @media only screen and (min-width: 1100px) */
+
+@media only screen and (min-width: 1400px) {
+
+	/* Reajuste de medidas para inicio.html */
+	div#main-inicio aside#inicio-aside { height: 700px; }
+
+} /* @media only screen and (min-width: 1400px) */
+
+@media only screen and (min-width: 1900px) {
+
+	/* Reajuste de medidas para inicio.html */
+	div#main-inicio aside#inicio-aside { height: 800px; }
+
+} /* @media only screen and (min-width: 1900px) */
+
+/*---------------------------------------------------------------------- 
+FIN MEDIA QUERIES */

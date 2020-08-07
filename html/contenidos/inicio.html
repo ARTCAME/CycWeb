@@ -1,0 +1,34 @@
+<div id="main-inicio">
+	<article id="inicio-principal" class="animated-in">
+		<p>Nuestra tienda abrió sus puertas hace diez años con la ilusión de ofrecer al público los mejores productos y un trato exquisito desde el corazón del barrio de las Delicias en Zaragoza. Durante todo este tiempo hemos trabajado para ofrecer a nuestros clientes un surtido de la más alta calidad.</p>
+		<p>Con la misma ilusión estrenamos nuestra página web en la que le invitamos a conocernos a nosotros, a nuestro establecimiento y a los productos que ofrecemos.</p>
+		<p><strong>¡Le damos una cálida bienvenida!</strong></p>
+	</article>
+	<article id="inicio-secundaria" class="animated-in">
+		<p>Somos una empresa familiar que busca ofrecer la mejor calidad en todos los productos y trabajamos para encontrar a los mejores productores y distribuidores. Nos especializamos en productos de la zona de Aragón y de todo el ámbito nacional como son el jamón de Teruel, de Teruel con denominación de origen (D.O.), jamón ibérico de cebo, jamón ibérico de bellota, espárragos con denominación de origen Navarra, entre otros muchos.</p>		
+		<p>En nuestro establecimiento podrá encontrar una gran variedad de conservas y envasados, vinos, cavas y champagne, aceites, surtido de adobos y embutidos, quesos y, además, todo tipo de lotes, cestas y bandejas con surtido de productos a escoger.</p>
+	</article>
+	<aside id="inicio-aside" class="noscript" class="animated-in">
+		<iframe id="galeria-inicio" src="html/auxiliar/galeria-embed.html"></iframe>
+		<a href="?p=galeria">Ver en la galería de imágenes</a>
+	</aside>
+	<script>
+		/* Si se carga el <iframe> se borra clase a elemento <div> que mostrará una imagen de relleno y si una imagen no se carga se le añade una de relleno */
+		document.getElementById("galeria-inicio").addEventListener("load",function() {
+			var iframeEmb = document.getElementById("galeria-inicio").contentWindow.document.getElementById("main-galeria-embed");
+			iframeEmb.className = ""; /* Elimina clase que anima cuando no hay Javascript */
+			/* Comprueba la carga de todas las imágenes para cargar el elemento que las contiene en la página dándole animación */
+			var imgInicio = document.getElementById("galeria-inicio").contentWindow.document.getElementsByTagName("img");
+			for (var i = 0, cont = 0; i < imgInicio.length; i++) {
+				if (imgInicio[i].complete && imgInicio[i].naturalHeight !== 0) {
+					cont++;
+				}
+			}
+			if (cont == imgInicio.length) {
+				document.getElementById("main-inicio").className = "galeria-inicio-cargada"
+				document.getElementById("galeria-inicio").style.animation = "1s aparecer .5s forwards";
+				document.getElementById("galeria-inicio").contentWindow.document.getElementById("contenedor-carrusel").className = "carrusel-cargado"; /* Añade clase que anima carrusel */
+			}
+		});
+	</script>
+</div>

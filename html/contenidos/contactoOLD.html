@@ -1,0 +1,150 @@
+<div id="main-contacto">
+	<script src="https://www.google.com/recaptcha/api.js?hl=es" async defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<form id="formu" name="contacto" action="../php/contactoform.php" method="POST">
+		<noscript><div id="ns-form"><div id="avisonojs">Para que podamos gestionar tu formulario necesitamos Javascript activado en tu navegador. Puedes contactar con nosotros por <a id="ircontacto" href="#contacto-dire">cualquiera de las otras vías disponibles</a>.<br>Gracias y disculpa las molestias</div></div></noscript>
+		<fieldset>
+			<legend>Haznos llegar tu consulta</legend>
+			<label for="nombre">Nombre:</label>
+			<!-- pattern="(?=.*([\w]).*)[ \w]*" -->
+			<!-- usado evento onkeyup por que oninput no funciona como es debido en IE 11 -->
+			<input class="reque" id="nombre" type="text" name="nombre" placeholder="Introduce tu nombre (obligatorio)" maxlength="50" title="Introduce tu nombre (obligatorio)" onchange="requeridoIndividual(this); activarBoton();" onkeyup="requeridoIndividual(this); activarBoton();" required>
+			<label for="apellidos">Apellidos:</label>
+			<input id="apellidos" type="text" name="apellidos" placeholder="Introduce tus apellidos" maxlength="100" title="Introduce tus apellidos">
+			<label for="email">Correo electrónico:</label>
+			<input class="reque" id="email" type="email" name="email" placeholder="Introduce tu dirección de e-mail (obligatoria)" maxlength="100" title="Introduce tu dirección de e-mail (obligatoria)" onchange="requeridoIndividual(this); activarBoton();" onkeyup="requeridoIndividual(this); activarBoton();" oninput="requeridoIndividual(this); activarBoton();" required><!-- oninput funciona bien???? el e-mail hay que validarlo así ya que hasta no clicar fuera no se gestiona la validación -->
+			<label for="telefono">Teléfono:</label>
+			<input id="telefono" type="tel" name="telefono" placeholder="Introduce tu número de teléfono" maxlength="20" title="Introduce un teléfono válido">
+			<label for="consulta">Consulta:</label>
+			<textarea class="reque" id="consulta" type="text" rows="20" cols="20" name="consulta" placeholder="Introduce tu consulta (obligatoria)" maxlength="2000" title="Introduce tu consulta (obligatoria)" onchange="requeridoIndividual(this); activarBoton();" onkeyup="requeridoIndividual(this); activarBoton();" required></textarea>
+			<div id="captcha" class="g-recaptcha" name="g-recaptcha-response" data-callback="activarBoton" data-expired-callback="expirarBoton" data-sitekey="6LcZIygUAAAAAPmZElC_Er4Q1GqYUtuoVVW7vvRs" data-theme="dark" required></div>
+			<div class="confirmacion">
+				<input onclick="activarBoton()" class="reque" type="checkbox" name="termycond" id="termycond" required>
+				<label id="label-term" for="termycond">
+					<span></span>Marca la casilla si aceptas los 
+				</label>
+				<a title="Ver términos y condiciones" onclick="verEscapeIframe('contacto'); gestionPopUps('contacto');">términos y condiciones de privacidad</a>
+			</div>
+			<!-- ACTUALIZACIÓN - No se enviará publicidad hasta nuevo aviso
+			<div class="confirmacion">
+				<input type="checkbox" name="aceptpubli" id="aceptpubli">
+				<label id="label-publi" for="aceptpubli">
+					<span></span>Marca la casilla si NO quieres recibir información sobre futuras ofertas
+				</label>
+			</div>-->
+			<span id="contenedor-boton">
+				<span id="insiste" title="Botón desactivado, revisa los campos obligatorios" onclick="requeridoInicial()"></span>
+				<input class="boton" name="boton" id="botonEnviar" type="submit" value="Enviar" disabled="true" onclick="requeridoInicial()">
+			</span>
+		</fieldset>
+		<div id="resultado-formu">
+			<div id="cargante-uno"></div>
+			<div id="cargante-dos"></div>
+		</div>
+	</form>
+	<script>
+		document.getElementById("formu").addEventListener('submit', function(e) {
+			// Serializado manual ya que .serialize() no añade todos los campos
+			var nombre = document.getElementById("nombre").value;
+			var apellidos = document.getElementById("apellidos").value;
+			var email = document.getElementById("email").value;
+			var telefono = document.getElementById("telefono").value;
+			var consulta = document.getElementById("consulta").value;
+			var boton = document.getElementById("botonEnviar").value;
+			var termycond = document.getElementById("termycond").checked;
+			var publi = document.getElementById("aceptpubli").checked ? false : true;;
+			var captcha = grecaptcha.getResponse();
+			dataString = "nombre=" + nombre + "&apellidos=" + apellidos + "&email=" + email + "&telefono=" + telefono + "&consulta=" + consulta + "&boton=" + boton + "&termycond=" + termycond + "&aceptpubli=" + publi + "&g-recaptcha-response=" + captcha;
+      		e.preventDefault(); // Previene que la página se recargue al enviar formulario
+      		document.getElementById("cargante-uno").className = "aCargar"; /* Se añade clase que lo animará */
+      		document.getElementById("cargante-dos").className = "aCargar"; /* Se añade clase que lo animará */
+          	document.getElementById("resultado-formu").style.display = "block"; // Mostramos el contenedor del mensaje de respuesta
+          	document.getElementById("botonEnviar").value = "Enviando..."; // Cambio de texto en botón
+      		$.ajax({
+        		type: 'POST',
+        		url: 'php/contactoform.php',
+        		data: dataString,
+        		success: function(data) {
+          			grecaptcha.reset(); // Reseteo de captcha
+          			document.getElementById("botonEnviar").disabled = true; // Reseteo del botón
+          			document.getElementById("botonEnviar").value = "Enviar"; // Cambio de texto en botón
+					document.getElementById("insiste").style.display = "block"; // Reseteo de la cobertura del botón
+          			document.getElementById("formu").reset(); // Reseteo de todos los campos del formulario
+          			document.getElementById("resultado-formu").style.display = "block"; // Mostramos el contenedor del mensaje de respuesta
+          			document.getElementById("resultado-formu").innerHTML = data; // Mostramos el mensaje de respuesta       			
+        		},
+        		//error: function(data)  { console.log(data.responseText) }
+      		});
+    	});
+	</script>
+	<div id="formas-contacto">
+		<script type="application/ld+json">
+			/* Google no detecta microdata ?¿ */
+			{
+				"@context": "http://schema.org",
+				"@type": "LocalBusiness",
+				"address": {
+					"@type": "PostalAddress",
+					"streetAddress": "Avenida de Madrid 223",
+					"addressLocality": "Zaragoza",
+					"postalCode": "50017",
+					"addressRegion": "Zaragoza"
+				},
+				"name": "Charcuteria C&C",
+				"description": "Charcutería, tienda de jamones, jamones de Teruel, jamones con denominación de origen, embutidos, conservas de mar y de tierra, adobos, quesos, vinos y cavas, preparación de lotes y cestas y un largo etcétera!",
+				"telephone": "+34976338237",
+				"email": "contacto@charcuteriacyc.es",
+				"openingHours": ["Mo-Sa 9:00-14:00", "Mo-Fri 17:00-20:30"]
+			}
+		</script>
+		<div itemscope itemtype="http://schema.org/LocalBusiness" id="contacto">
+			<span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress" id="contacto-dire">
+				<p translate="no">
+					<span itemprop="name" id="nombre-charcu">Charcutería C&amp;C</span><br>
+					<span itemprop="streetAddress">Avenida de Madrid 223,</span><br>
+					<span itemprop="postalCode">50017, </span>
+					<span itemprop="addressLocality">Zaragoza</span>
+				</p>
+			</span>
+			<p id="contacto-hora">Horario de apertura:<br>
+				<span itemprop="openingHours"><strong>Lunes a viernes: </strong>9:00 - 14:00 y 17:00 - 20:30</span><br>
+				<span itemprop="openingHours"><strong>Sábados: </strong>9:00 - 14:00</span>
+			</p>
+			<span id="contacto-telf">Teléfono: <a itemprop="telephone" onclick="return (navigator.userAgent.match(/Android|iPhone|iPad|iPod|Mobile/i))!=null;"  href="tel:+34976338237">976 33 82 37</a><div></div></span>
+			<span id="contacto-mail">Correo electrónico: <a itemprop="email" href="mailto:contacto@charcuteriacyc.es">contacto@charcuteriacyc.es</a><div></div></span>
+		</div>
+		<div id="mapa-estatico">
+			<div id="contenedor-mapa">
+				<button id="centrar-mapa-contacto" title="Centrar/Recargar mapa" onclick="centrarMapa('contacto')"></button>
+				<iframe id="mapa-contacto" class="noscript" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2981.1770474809714!2d-0.9128254484874169!3d41.65191657913888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd596b315713182b%3A0x9493e993b3120e77!2sCharcuter%C3%ADa+C%26C!5e0!3m2!1ses!2ses!4v1499347562678" frameborder="0" allowfullscreen></iframe>
+				<script>
+					var iframeMapaContacto = document.getElementById("mapa-contacto");
+					iframeMapaContacto.contentWindow.onload = setTimeout(function() { /* Aún cargándose el contenido de <iframe> se aplica demora para mostrar el mensaje 3s */
+						document.getElementById("centrar-mapa-contacto").className = "mostrar-boton";
+					},3000);
+				</script>
+				<noscript id="ns-mapa">
+					<a id="link-imgmapa" href="https://www.google.es/maps/place/Charcuter%C3%ADa+C%26C/@41.6519445,-0.9103557,17.7z/data=!4m8!1m2!2m1!1scharcuteria+c+c,+zaragoza!3m4!1s0x0:0x9493e993b3120e77!8m2!3d41.6519169!4d-0.9106307" target="_blank">
+						<img id="imgmapa" src="https://maps.googleapis.com/maps/api/staticmap?center=Avenida+Madrid+223,+Zaragoza&zoom=17&scale=2&size=800x800&maptype=roadmap&key=AIzaSyDPfCCZWxMxTJMt4haC7fpTE3-I8e71dCY&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xc93638%7Clabel:%7CCharcutería+CyC,+Avenida+Madrid+223,+50017+zaragoza" alt="Charcutería C&amp;C, Avenida Madrid 223, Zaragoza" title="Abrir en Google Maps">
+					</a>
+				</noscript>
+			</div>
+		</div>
+	</div>
+	<script>
+		/* Función para mostrar clicados o no elementos o habilitar botón */
+		var term = document.getElementById("termycond");
+		var publi = document.getElementById("aceptpubli");
+		var btnenviar = document.getElementById("botonEnviar")
+		window.addEventListener("DOMContentLoaded", function() { 
+			term.checked == true ? term.checked = false : term; /* Desactivar el estado :checked de checkbox al recargar página */
+			publi.checked == true ? publi.checked = false : publi; /* Desactivar el estado :checked de checkbox al recargar página */
+			btnenviar.disabled == true ? btnenviar.disabled : btnenviar.disabled = true; /* Desactivar el botón de enviar al recargar (al recargar se reinician más elementos del formulario por lo que debe quedar desactivado para así evitar reenvíos innecesarios) */		
+		},false);
+		var insiste = document.getElementById("insiste");
+		insiste.addEventListener("click", function() {
+			requeridoInicial();
+			insisteClic();
+		},false);
+	</script>
+</div>

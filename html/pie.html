@@ -1,0 +1,29 @@
+<footer id="pie-principal">
+	<div id="footer-nav">
+		<p id="pie-info">&copy; 2017-<?php echo date("Y");?> · Charcutería C&amp;C</p>
+		<nav id="pie-nav">
+			<noscript><a class="terminos" title="Ver términos y condiciones" href="html/auxiliar/terminos.html" target="_blank">Términos y condiciones</a></noscript>
+			<a id="mostrar-term" class="terminos noscript" title="Ver términos y condiciones" onclick="verEscapeIframe('pie'); gestionPopUps('pie');">Términos y condiciones</a><!--
+		 --><div class="contenedor-fondo" id="contenedorifr-pie" onkeydown="cerrarEsc(e)">
+		  		<div id="ios-scroller">
+		  			<div class="terminos-nav" id="contenedor-btn-term-pie">
+			            <button title="Imprimir" class="term-btn-pie" id="btn-imprimir-term-pie" onclick="document.getElementById('terminos-pie').contentWindow.print()"></button>
+			            <button title="Abrir en una nueva pestaña" class="term-btn-pie" id="btn-nuevapes-term-pie" onclick="window.open('html/auxiliar/terminos.html')"></button>
+			            <button title="Cerrar ventana" class="term-btn-pie" id="btn-cerrar-term-pie" onclick="cerrarAspa()"></button>
+			        </div>
+		  			<iframe id="terminos-pie" src="html/auxiliar/terminos.html"></iframe>
+		  		</div>
+			</div><!--
+		 --><a href="?p=contacto">Contacto</a><!--
+		 --><a href="?p=inicio">Inicio</a><!--
+		 --><div id="social-container">
+		 		<div class="fb-like" data-href="https://www.facebook.com/charcuteriacyc" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="false" alt="facebook"></div>
+		 	</div>
+		</nav>
+	</div>
+	<div id="footer-handmade">
+		<a id="handmade" href="#">
+			<img alt="Handmade By Art" id="img-handmade" src="img/handmade/HandmadeByArt.png" title="Hecho a mano">
+		</a>
+	</div>
+</footer>

@@ -1,0 +1,89 @@
+@charset "utf-8";
+
+/*
+-Autor/Author................Arturo Casas (arzzz@hotmail.es)
+-Descripción/Description.....Hoja de estilos complementaria a estilos.css para página de contacto/Complementary to estilos.css for contact page
+-Versión/Version.............0.0
+-Ayuda para la lectura/
+Help reading.................TODOS los elementos están ordenados alfabéticamente dentro de sus apartados (por ejemplo: header o footer) y siempre de selector menos específico a más específico, pseudo-clases y eventos. Todos los selectores están anidados hasta su raíz excepto clases o elementos que compartan estilos en varios documentos/EVERY element is alphabetically ordered inside her group (i.e: header or footer) and from lower to more specific, followed by pseudo-classes and events. Selectors are nested in all of its parents
+-Llamada desde/Called from...estilos.css, galeria-embed.html
+-Actúa sobre/Affects on......cabecera.html, contacto.html, galeria.html, galeria-embed.html, inicio.html, productos.html
+*/
+
+@keyframes aparecer { 
+    from { opacity: 0; }
+    to { opacity: 1; }
+}  
+
+@keyframes aparecerImg { /* galeria.html */
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInMenu { /* cabecera.html */
+	from { transform: scale(.90); opacity: 0; }
+	to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes giraDerecha { /* contacto.html */
+	from { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
+} 
+
+@keyframes giraIzquierda { /* contacto.html */
+	from { transform: rotate(0deg); }
+	to { transform: rotate(-360deg); }
+}
+
+@keyframes transicionImg { /* galeria-embed.html */
+ 	0% { opacity: 0; }
+ 	1% { opacity: 1; }
+    17.5% { opacity: 1; }
+    20% { opacity: 1; }
+    22% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@keyframes transicionImgNoScr { /* galeria-embed.html */
+ 	0% { opacity: 0; }
+ 	1% { opacity: 1; }
+    17.5% { opacity: 1; }
+    20% { opacity: 1; }
+    22% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@keyframes fadeInProd { /* productos.html // inicio.html */
+	from { 
+		opacity: 0; 
+		transform: scale(.99);
+	}
+	to { 
+		opacity: 1; 
+		transform: scale(1);
+	}
+}
+
+@keyframes fadeInRightToLeft { /* cabecera.html */
+	from {
+		opacity: 0;
+		/*transform: translateX(10px);*/
+		transform: translateX(5px) scale(.98);
+	}
+	to {
+		opacity: 1;
+		/*transform: translateX(0);*/
+		transform: scale(1);
+	}
+}
+
+@keyframes fadeInLeftToRight { /* cabecera.html */
+	from {
+		opacity: 0;
+		transform: translateX(-5px) scale(.98);
+	}
+	to {
+		opacity: 1;
+		/*transform: translateX(0);*/
+	}
+}

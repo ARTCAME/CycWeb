@@ -1,0 +1,232 @@
+<!-- Mensaje que se mostrará al usuario cuando acceda sin javascript -->
+<noscript>
+	<input type="checkbox" id="boton-nojs-cabe">
+	<label class="" for="boton-nojs-cabe">
+		<span class="mensaje-nojs">La página web www.charcuteriacyc.es ha sido diseñada para mostrar funcionalidades que necesitan la ejecución de Javascript.<br>Por favor, activa Javascript en la configuración de tu navegador para disfrutar de lo que hemos diseñado para ti.</span>
+	</label>
+</noscript>
+<header>
+	<div id="header-logo" class="pegar">
+		<div id="header-imgs" class="pegar">
+			<a id="logo-imgs" class="pegar" href="?p=inicio">
+				<img alt="Logo charcutería c&amp;c" id="logo-largo" class="pegar" src="img/logos/logocyc.svg">
+				<!--<img alt="Logo charcutería c&amp;c Pilares" id="logo-largo" class="pegar" src="img/logos/logocycpilar.svg">-->
+				<!--<img alt="Logo charcutería c&amp;c Navidad" id="logo-largo" class="pegar" src="img/logos/logocycnavidad.svg">-->
+				<img alt="Logo charcutería c&amp;c minimal" id="logo-pegado" class="pegar" src="img/logos/logocycminimal.svg">
+			</a>
+		</div>
+		<div id="donde" class="pegar">
+			<input type="checkbox" id="boton-mapa">
+			<label class="mapa-flota" for="boton-mapa">
+				<span id="donde-elementos">
+					<span id="telf-cabecera">
+						<a onclick="return (navigator.userAgent.match(/Android|iPhone|iPad|iPod|Mobile/i))!=null;" id="telf-solo" href="tel:+34976338237" title="¡Llámanos!">976 33 82 37</a>
+						<a onclick="return (navigator.userAgent.match(/Android|iPhone|iPad|iPod|Mobile/i))!=null;" id="telf-img" href="tel:+34976338237" title="¡Llámanos!">
+							<img alt="Icono teléfono" src="img/iconos/telefono.png">
+						</a>
+					</span>
+					<span id="direc-cabecera">Avenida de Madrid 223, Zaragoza</span>
+					<span id="donde-img">
+						<img alt="Icono marcador mapa" id="img-chincheta" src="img/iconos/marcador.png" title="Mostrar mapa">
+						<img alt="Icono aspa cerrar" id="img-aspa" src="img/iconos/aspa.png" title="Cerrar mapa">
+					</span>
+				</span>
+			</label>
+			<span id="contenedor-mapa-flotante">
+				<iframe id="mapa-flotante" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2981.176861973346!2d-0.9128200842775155!3d41.65192058751639!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd596b315713182b%3A0x9493e993b3120e77!2sCharcuter%C3%ADa+C%26C!5e0!3m2!1ses!2ses!4v1513344303791" allowfullscreen></iframe>
+				<button id="centrar" title="Centrar/Recargar mapa" onclick="centrarMapa('cabecera')"></button>
+				<span id="mapa-texto">Si el mapa no se carga sigue el siguiente <a href="?p=contacto#contacto-dire">enlace</a>.</span>
+			</span>
+		</div>
+		<nav id="menus" class="pegar">
+			<div class="menu-navegacion">
+				<input type="checkbox" id="boton-control">
+				<label class="menu-contenedor" for="boton-control">
+					<span id="boton" title="Menú">
+						<span class="lineash" id="linea1"></span>
+						<span class="lineash" id="linea2"></span>
+						<span class="lineash" id="linea3"></span>
+						<span class="lineash" id="linea4"></span>
+						<span class="lineash" id="linea5"></span>
+					</span>
+					<!-- Marcamos con clase "activa" para saber en qué página estamos y poder aplicar estilos -->
+					<span id="inicio" class="<?php echo $pagina == 'inicio' ? 'activa' : ''; echo ' sombra'?>">
+						<a href="?p=inicio">Inicio</a>
+					</span>
+					<span id="productos" class="<?php echo $pagina == 'productos' ? 'activa' : ''; echo ' sombra'?>">
+						<a href="?p=productos">Productos</a>
+					</span>
+					<span id="galeria" class="<?php echo $pagina == 'galeria' ? 'activa' : ''; echo ' sombra'?>">
+						<a href="?p=galeria">Galería</a>
+					</span>
+					<span id="contacto" class="<?php echo $pagina == 'contacto' ? 'activa' : ''; echo ' sombra'?>">
+						<a href="?p=contacto">Contacto</a>
+					</span>
+				</label>
+			</div>
+		</nav>
+	</div>
+</header>
+<script>
+	/* Función para pegar la cabecera a la página cuando se hace scroll ** Actúa en: cabecera.html en eventos */
+	var a = 0;
+	var floto = false;
+	function pegarTitulo() {
+		var b = window.pageYOffset || (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+		var c = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+		var d = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+		var j = document.getElementsByClassName("pegar");
+		var l = document.getElementsByClassName("activa")[0];
+		var n = document.getElementsByClassName("sombra");
+		var btnMapa = document.getElementById("boton-mapa");
+		var btnMenu = document.getElementById("boton-control");
+		/*
+		 *	NOTA: Existe bug en IE que en evento scroll renderiza de nuevo el encabezado pegado aunque no queramos, para prevenirlo eliminamos esa animación para IE
+		 */
+		if (floto) { /* Si se está tratando algún elemento flotante en galeria.html o pie.html o contacto.html */
+			for(var x = 0; x < j.length; x++) { /* Añadimos clase para "pegar" */
+				j[x].className = "pegar menus-fijo";
+			}
+			floto = false;
+		} else {
+			var isIE = /*@cc_on!@*/false || !!document.documentMode; /* Detectando si se usa internet explorer 6-11 */
+			if (b >= a) { /* Si se hace scroll hacia abajo */
+				if (c >= 1100) {
+					btnMenu.checked == true ? btnMenu.checked = false : btnMenu;
+				}	
+				if (c >= 720 && b > 200) { /* Si el scroll es de más de 200px y el ancho es mayor o igual a 720px */
+					for(var x = 0; x < j.length; x++) { /* Añadimos clase para "pegar" */
+						j[x].className = "pegar menus-fijo";
+					}
+					if (!isIE) { /* Si no se usa IE */
+						if (b > 640) { /* Si el scroll no es menor que 640 */
+							btnMapa.checked == true ? btnMapa.checked = false : btnMapa;
+							btnMenu.checked == true ? btnMenu.checked = false : btnMenu;
+							document.getElementById("header-logo").className += " subido";
+						}
+					}
+				} else if (c >= 720 && b < 200) { /* Si el scroll es menor de 200px y el ancho es mayor o igual a 720px */
+					for(var x = 0; x < j.length; x++) { /* Añadimos clase para "pegar" */
+						j[x].className = "pegar";
+					}
+					document.getElementById("boton").style.display = "";
+					for (var x = 0; x < n.length; x++) {
+						n[x].id == l.id ? n[x].className = "activa sombra" : n[x].className = "sombra";	
+					}
+				} else if (c < 720 && b > 90) { /* Para la anchura inferior a 720 y hay scroll no menor de 90 */
+					for(var x = 0; x < j.length; x++) { /* Añadimos clase para "pegar" */
+						j[x].className = "pegar menus-fijo";
+					}
+					if (!isIE) { /* Si no se usa IE */
+						if (b > 440) { /* Si el scroll no es menor que 440 */
+							btnMapa.checked == true ? btnMapa.checked = false : btnMapa;
+							btnMenu.checked == true ? btnMenu.checked = false : btnMenu;
+							document.getElementById("header-logo").className += " subido";
+						}
+					}
+				}
+			} else { /* Si se hace scroll hacia arriba subiendo */
+				if (c < 720 && b > 90) { /* Si el ancho es menor a 720 y hay scroll no menor de 90 */
+					for(var x = 0; x < j.length; x++) { /* Añadimos clase para "pegar" y reseteamos posición */
+						j[x].className = "pegar menus-fijo";
+						//j[x].style.top = "";
+					}
+				} else if (c >= 720 && b > 200) { /* Si el ancho está entre 720 y 1279 y el scroll es mayor que 200 */
+					for(var x = 0; x < j.length; x++) { /* Añadimos clase para "pegar" y reseteamos posición */
+						j[x].className = "pegar menus-fijo";
+						//j[x].style.top = "";
+					}
+				} else if (c >= 1125 && b > 200) {
+					for(var x = 0; x < j.length; x++) { /* Añadimos clase para "pegar" y reseteamos posición */
+						j[x].className = "pegar menus-fijo";
+						//j[x].style.top = "";
+					}
+					document.getElementById("boton").style.display = "";
+					var l = document.getElementsByClassName("activa")[0];
+					var n = document.getElementsByClassName("sombra");
+					for (var x = 0; x < n.length; x++) {
+						n[x].id == l.id ? n[x].className = "activa sombra" : n[x].className = "sombra";	
+					}
+				} else { /* Si no hay scroll */
+					for(var x = 0; x < j.length; x++) { /* Los elementos class="pegar" mantienen la clase */
+						j[x].className = "pegar";
+					}
+					document.getElementById("boton").style.display = "";
+					var l = document.getElementsByClassName("activa")[0];
+					var n = document.getElementsByClassName("sombra");
+					for (var x = 0; x < n.length; x++) {
+						n[x].id == l.id ? n[x].className = "activa sombra" : n[x].className = "sombra";	
+					}
+				}
+			}
+			a = b; /* a guarda el último valor de scrollY */
+		}
+	}
+	/* Detectamos eventos de scroll, resize y click en los elementos que conforman la zona que hará que el mapa se contraiga */
+	/*if (window.attachEvent) { // Paleozoico -- No usado, se redirige a página anti IE
+		window.attachEvent("oncroll", function() { pegarTitulo(); });
+		window.attachEvent("onresize", function() { pegarTitulo(); });
+		window.attachEvent("onclick", function clic(e) {
+			if (e.target.id != "boton" && 
+				e.target.id != "boton-control" &&
+				e.target.id != "linea1" && 
+				e.target.id != "linea2" && 
+				e.target.id != "linea3" && 
+				e.target.id != "linea4" && 
+				e.target.id != "linea5" &&
+				e.target.id != "boton-mapa" &&
+				e.target.id != "donde-img" &&
+				e.target.id != "img-chincheta" &&
+				e.target.id != "img-aspa" &&
+				e.target.id != "direc-cabecera" &&
+				e.target.id != "centrar" &&
+				e.target.id != "contenedor-mapa-flotante" &&
+				e.target.id != "mapa-flotante" &&
+				e.target.id != "centrar" &&
+				e.target.id != "mapa-texto") {
+		    		document.getElementById("boton-control").checked = false; 
+					document.getElementById("boton-mapa").checked = false; 
+					//if (!ev) var ev = window.event;
+				    //ev.cancelBubble = true;
+				    //if (ev.stopPropagation) ev.stopPropagation();
+			}
+		});
+	} else*/ if (window.addEventListener) { // Contemporaneo
+		window.addEventListener("scroll", function() { pegarTitulo(); },false);
+		window.addEventListener("resize", function() { pegarTitulo(); },false);
+		window.addEventListener("click", function clic(e) {
+			if (e.target.id != "boton" && 
+				e.target.id != "boton-control" &&
+				e.target.id != "linea1" && 
+				e.target.id != "linea2" && 
+				e.target.id != "linea3" && 
+				e.target.id != "linea4" && 
+				e.target.id != "linea5" &&
+				e.target.id != "boton-mapa" &&
+				e.target.id != "donde-img" &&
+				e.target.id != "img-chincheta" &&
+				e.target.id != "img-aspa" &&
+				e.target.id != "direc-cabecera" &&
+				e.target.id != "centrar" &&
+				e.target.id != "contenedor-mapa-flotante" &&
+				e.target.id != "mapa-flotante" &&
+				e.target.id != "centrar" &&
+				e.target.id != "mapa-texto") {
+		    		document.getElementById("boton-control").checked = false; 
+					document.getElementById("boton-mapa").checked = false; 
+					//if (!ev) var ev = window.event;
+				    //ev.cancelBubble = true;
+				    //if (ev.stopPropagation) ev.stopPropagation();
+			}
+		},false);
+	}
+	/* Función para comprobar si el contenido de <iframe> que contiene el mapa se carga y si es así no se muestra mensaje flotante <span id="mapa-texto"> */
+	var iframeMapa = document.getElementById("mapa-flotante");
+	iframeMapa.onload = setTimeout(function() { /* Aún cargándose el contenido de <iframe> se aplica demora para mostrar el mensaje 3s */
+		document.getElementById("mapa-texto").style.height = "0"; /* Eliminamos la altura y hacemos invisible */
+		document.getElementById("mapa-texto").style.boxShadow = "none"; /* Eliminamos la sombra para que en "reposo" no se muestra */
+		document.getElementById("centrar").className = "mostrar-boton";
+	},3000);
+	/* Llamada a función para cerrar elementos al pulsar ESC */
+	document.onkeydown = cerrarEsc;
+</script>

@@ -1,0 +1,62 @@
+<!-- 
+Actualización 21/10 
+- Se retira el formulario y toda gestión de contacto dinámico, pasa a ser página estática con los datos de contacto, se mantienen todos los archivos relacionados y sus funcionalidades. El archivo anterior es contacto21_10_19.html donde están todas las referencias
+-->
+<div id="main-contacto">
+	<script src="https://www.google.com/recaptcha/api.js?hl=es" async defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<div id="formas-contacto">
+		<script type="application/ld+json">
+			/* Google no detecta microdata ?¿ */
+			{
+				"@context": "http://schema.org",
+				"@type": "LocalBusiness",
+				"address": {
+					"@type": "PostalAddress",
+					"streetAddress": "Avenida de Madrid 223",
+					"addressLocality": "Zaragoza",
+					"postalCode": "50017",
+					"addressRegion": "Zaragoza"
+				},
+				"name": "Charcuteria C&C",
+				"description": "Charcutería, tienda de jamones, jamones de Teruel, jamones con denominación de origen, embutidos, conservas de mar y de tierra, adobos, quesos, vinos y cavas, preparación de lotes y cestas y un largo etcétera!",
+				"telephone": "+34976338237",
+				"email": "contacto@charcuteriacyc.es",
+				"openingHours": ["Mo-Sa 9:00-14:00", "Mo-Fri 17:00-20:30"]
+			}
+		</script>
+		<div itemscope itemtype="http://schema.org/LocalBusiness" id="contacto">
+			<span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress" id="contacto-dire">
+				<p translate="no">
+					<span itemprop="name" id="nombre-charcu">Charcutería C&amp;C</span><br>
+					<span itemprop="streetAddress">Avenida de Madrid 223,</span><br>
+					<span itemprop="postalCode">50017, </span>
+					<span itemprop="addressLocality">Zaragoza</span>
+				</p>
+			</span>
+			<p id="contacto-hora">Horario de apertura:<br>
+				<span itemprop="openingHours"><strong>Lunes a viernes: </strong>9:00 - 14:00 y 17:00 - 20:30</span><br>
+				<span itemprop="openingHours"><strong>Sábados: </strong>9:00 - 14:00</span>
+			</p>
+			<span id="contacto-telf">Teléfono: <a itemprop="telephone" onclick="return (navigator.userAgent.match(/Android|iPhone|iPad|iPod|Mobile/i))!=null;"  href="tel:+34976338237">976 33 82 37</a><div></div></span>
+			<span id="contacto-mail">Correo electrónico: <a itemprop="email" href="mailto:contacto@charcuteriacyc.es">contacto@charcuteriacyc.es</a><div></div></span>
+		</div>
+		<div id="mapa-estatico">
+			<div id="contenedor-mapa">
+				<button id="centrar-mapa-contacto" title="Centrar/Recargar mapa" onclick="centrarMapa('contacto')"></button>
+				<iframe id="mapa-contacto" class="noscript" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2981.1770474809714!2d-0.9128254484874169!3d41.65191657913888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd596b315713182b%3A0x9493e993b3120e77!2sCharcuter%C3%ADa+C%26C!5e0!3m2!1ses!2ses!4v1499347562678" frameborder="0" allowfullscreen></iframe>
+				<script>
+					var iframeMapaContacto = document.getElementById("mapa-contacto");
+					iframeMapaContacto.contentWindow.onload = setTimeout(function() { /* Aún cargándose el contenido de <iframe> se aplica demora para mostrar el mensaje 3s */
+						document.getElementById("centrar-mapa-contacto").className = "mostrar-boton";
+					},3000);
+				</script>
+				<noscript id="ns-mapa">
+					<a id="link-imgmapa" href="https://www.google.es/maps/place/Charcuter%C3%ADa+C%26C/@41.6519445,-0.9103557,17.7z/data=!4m8!1m2!2m1!1scharcuteria+c+c,+zaragoza!3m4!1s0x0:0x9493e993b3120e77!8m2!3d41.6519169!4d-0.9106307" target="_blank">
+						<img id="imgmapa" src="https://maps.googleapis.com/maps/api/staticmap?center=Avenida+Madrid+223,+Zaragoza&zoom=17&scale=2&size=800x800&maptype=roadmap&key=AIzaSyDPfCCZWxMxTJMt4haC7fpTE3-I8e71dCY&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xc93638%7Clabel:%7CCharcutería+CyC,+Avenida+Madrid+223,+50017+zaragoza" alt="Charcutería C&amp;C, Avenida Madrid 223, Zaragoza" title="Abrir en Google Maps">
+					</a>
+				</noscript>
+			</div>
+		</div>
+	</div>
+</div>
