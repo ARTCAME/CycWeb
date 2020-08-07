@@ -1,0 +1,292 @@
+@charset "utf-8";
+
+/*
+-Autor/Author................Arturo Casas (arzzz@hotmail.es)
+-Descripción/Description.....Hoja de estilos de impresión para todo el dominio, complementa a todas las demás y resetea muchos de sus valores/Print styles for all domain pages, complements all the rest stylesheets
+-Versión/Version.............0.0
+-Ayuda para la lectura/
+Help reading.................TODOS los elementos están ordenados alfabéticamente dentro de sus apartados (por ejemplo: header o footer) y siempre de selector menos específico a más específico, pseudo-clases y eventos. Todos los selectores están anidados hasta su raíz excepto clases o elementos que compartan estilos en varios documentos/EVERY element is alphabetically ordered inside her group (i.e: header or footer) and from lower to more specific, followed by pseudo-classes and events. Selectors are nested in all of its parents
+-Llamada desde/Called from...index.php, 404.html, precursorbrowser.html, terminos.html, terminosprecursor.html, uncon.html
+-Actúa sobre/Affects on......index.php, 404.html, cabecera.html, contacto.html, galeria.html, inicio.html, pie.html, precursorbrowser.html, productos.html, terminos.html, terminosprecursor.html, uncon.html
+*/
+
+/* Carga de fuente alojada en el servidor */
+@font-face {
+    font-family: "pt_serifregular";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/PT-Serif/ptserif_regular_macroman/PTF55F-webfont.eot");
+    src: url("../fonts/PT-Serif/ptserif_regular_macroman/PTF55F-webfont.eot?#iefix") format("embedded-opentype"),
+         /*url("../fonts/PT-Serif/ptserif_regular_macroman/PTF55F-webfont.woff") format("woff"),*/
+         url("../fonts/PT-Serif/ptserif_regular_macroman/PTF55F-webfont.ttf") format("truetype"),
+         url("../fonts/PT-Serif/ptserif_regular_macroman/PTF55F-webfont.svg#pt_serifregular") format("svg");
+}
+
+/* Carga de fuente alojada en el servidor */
+@font-face {
+    font-family: "pt_serifitalic";
+    font-style: normal;
+    font-weight: normal;    
+    src: url("../fonts/PT-Serif/ptserif_italic_macroman/PTF56F-webfont.eot");
+    src: url("../fonts/PT-Serif/ptserif_italic_macroman/PTF56F-webfont.eot?#iefix") format("embedded-opentype"),
+         /*url("../fonts/PT-Serif/ptserif_italic_macroman/PTF56F-webfont.woff") format("woff"),*/
+         url("../fonts/PT-Serif/ptserif_italic_macroman/PTF56F-webfont.ttf") format("truetype"),
+         url("../fonts/PT-Serif/ptserif_italic_macroman/PTF56F-webfont.svg#pt_serifitalic") format("svg");
+}
+
+/*---------------------------------------------------------------------- 
+COMUNES */
+
+/* Reseteo de valores comunes */
+* {
+	background: transparent!important;
+	border: none!important;
+	box-shadow: none!important;
+	box-sizing: border-box;
+	color: black;
+	font-size: 16px;
+	max-width: 100%;
+	text-align: left;
+	text-shadow: none;
+}
+
+/* Todos los elementos noscript ocultos */
+noscript { display: none!important; }
+
+/* Estilos comunes para todos los "div#main.." */
+div[id^="main"] { 
+	font-family: "pt_serifregular";
+	margin-bottom: 0px!important; 
+}
+
+/*---------------------------------------------------------------------- 
+FIN COMUNES */
+
+
+/*---------------------------------------------------------------------- 
+cabecera.html, terminos.html y terminosprecursor.html*/
+
+header,
+div.term-header { margin-bottom: 15px!important; }
+
+header,
+header div#header-logo,
+header div#header-logo.pegar,
+header div#header-logo.pegar.menus-fijo,
+header div#header-logo.pegar.menus-fijo.subido,
+div.term-header, 
+div.term-header div.term-header-logo { 
+	display: block!important;
+	height: 100px!important; 
+	position: relative!important; top: 0!important;
+}
+
+header div#header-logo div#header-imgs a#logo-imgs img#logo-largo,
+header div#header-logo div#header-imgs a#logo-imgs img#logo-largo.menus-fijo { 
+	display: block!important; 
+	height: 100px!important;
+	margin: 0 auto!important;
+	max-height: 100px!important;
+	max-width: 100%!important;
+}
+
+header div#header-logo nav#menus,
+header div#header-logo div#donde,
+header div#header-logo div#header-imgs a#logo-imgs img#logo-pegado { display: none!important; }
+
+/*---------------------------------------------------------------------- 
+FIN cabecera.html y terminos.html */
+
+
+/*---------------------------------------------------------------------- 
+inicio.html */
+
+div#main-inicio * { margin-bottom: 0!important; }
+
+div#main-inicio aside#inicio-aside,
+div#main-inicio aside#inicio-aside a { display: none!important; }
+
+/*---------------------------------------------------------------------- 
+FIN inicio.html */
+
+
+/*---------------------------------------------------------------------- 
+pie.html */
+
+footer#pie-principal { display: none; }
+
+/*---------------------------------------------------------------------- 
+FIN pie.html */
+
+
+/*---------------------------------------------------------------------- 
+pie.html, terminos.html */
+
+div#contenedor-btn-term-term.terminos-nav,
+div#contenedor-btn-term-pie.terminos-nav { display: none!important; }
+
+/*---------------------------------------------------------------------- 
+FIN pie.html, terminos.html */
+
+
+/*---------------------------------------------------------------------- 
+index.php, 404.html, precursorbrowser.html, terminos.html, terminosprecursor.html, uncon.html */
+
+div.contenedor-imprimir { 
+	height: 900px!important;
+	display: block!important; 
+	font-family: "pt_serifitalic"!important;
+	page-break-before: always!important;
+	page-break-inside: avoid!important;
+	position: relative;
+}
+
+div.contenedor-imprimir div.formas-contacto-imprimir {
+	border-bottom: 2px solid rgba(0,0,0,1)!important;
+	border-top: 2px solid rgba(0,0,0,1)!important;
+	height: 250px;
+	width: 100%!important;
+}
+
+div.contenedor-imprimir.aux div.formas-contacto-imprimir { display: block!important; }
+
+div.contenedor-imprimir div.formas-contacto-imprimir img {
+	height: 245px;
+	float: right; 
+	width: 300px;
+}
+
+div.contenedor-imprimir div.formas-contacto-imprimir div.contacto-dire-imprimir {
+	display: inline-block;
+	float: left;
+	line-height: 1.2;
+	margin-top: 20px!important;
+	text-align: center!important;
+}
+
+div.contenedor-imprimir div.formas-contacto-imprimir div.contacto-dire-imprimir * { text-align: center!important; }
+
+div.contenedor-imprimir div.pie-imprimir { 
+	position: absolute; bottom: 0;
+	width: 100%!important; 
+}
+
+div.contenedor-imprimir div.pie-imprimir div.pie-charcu { 
+	float: left; 
+	min-width: 250px; /* IE */
+}
+
+div.contenedor-imprimir div.pie-imprimir div.pie-hdmd { float: right; }
+
+div.contenedor-imprimir.aux div.pie-imprimir div.pie-charcu a.aux-terminos { display: none!important; }
+
+div.contenedor-imprimir div.pie-imprimir div.pie-hdmd a img { 
+    height: 50px; 
+    margin-top: -15px;
+}
+
+div.contenedor-imprimir.aux div.pie-imprimir div.pie-hdmd a img { margin: 0; }
+
+/*---------------------------------------------------------------------- 
+FIN index.php, 404.html, precursorbrowser.html, terminos.html, terminosprecursor.html, uncon.html */
+
+
+/*---------------------------------------------------------------------- 
+404.html, precursorbrowser.html, uncon.html */
+
+div.aux-formas-contacto,
+div.mapa-estatico,
+footer.aux-pie.aux { display: none!important; }
+
+/*---------------------------------------------------------------------- 
+FIN 404.html, precursorbrowser.html, uncon.html */
+
+
+/*---------------------------------------------------------------------- 
+productos.html */
+
+div#main-productos,
+div#main-productos div#contenedor-productos-galeria { display: block!important; }
+
+div#main-productos div#contenedor-productos-galeria div#productos-textos div[id^="productos-textos"] { opacity: 1!important; }
+
+div#main-productos div#contenedor-productos-galeria div#productos-textos div#productos-textos-embutidos { page-break-before: always; }
+
+div#main-productos div#contenedor-productos-galeria div#productos-textos div h2 { height: auto!important; }
+
+div#main-productos div#contenedor-productos-galeria div#productos-textos div p { 
+	padding-bottom: 0!important;
+	padding-top: 0!important; 
+}
+
+/*---------------------------------------------------------------------- 
+FIN productos.html */
+
+
+/*---------------------------------------------------------------------- 
+galeria.html */
+
+div#main-galeria { height: 0!important; }
+
+div#main-galeria:before {
+	content: "Galería de imágenes de Charcutería C&C \A Visita www.charcuteriacyc.es/galeria para poder ver este contenido";
+	height: 150px;
+	position: absolute; bottom: 0; left: 0; right: 0; top: 150px;
+	text-align: center;
+	width: 100%;
+	white-space: pre;
+}
+
+/*---------------------------------------------------------------------- 
+FIN galeria.html */
+
+
+/*---------------------------------------------------------------------- 
+contacto.html */
+
+div#main-contacto { 
+	height: 0!important; 
+    padding: 30px 0; 
+}
+
+div#main-contacto:before {
+	content: "Formulario de contacto de Charcutería C&C \A visita www.charcuteriacyc.es/contacto para poder ver este contenido";
+	height: 150px;
+	position: absolute; bottom: 0; left: 0; right: 0; top: 150px;
+	text-align: center;
+	width: 100%;
+}
+
+/*---------------------------------------------------------------------- 
+FIN contacto.html */
+
+
+/*---------------------------------------------------------------------- 
+terminos.html, terminosprecursor.html */
+
+div.texto h2,
+div.texto h3 { 
+	border-bottom: 1px solid rgba(102,0,0,1)!important;
+	font-size: 18px!important;
+	font-weight: 100!important;
+	margin: 15px 0 5px!important;	
+	width: 80%!important;
+}
+
+/*---------------------------------------------------------------------- 
+FIN terminos.html, terminosprecursor.html */
+
+
+/*---------------------------------------------------------------------- 
+MEDIA QUERIES */
+
+@media all and (orientation:landscape) {
+
+	div.contenedor-imprimir { height: 695px!important; } /* index.php, 404.html, precursorbrowser.html, terminos.html, terminosprecursor.html, uncon.html */
+
+	div#main-productos div#contenedor-productos-galeria div#productos-textos div#productos-textos-embutidos { page-break-before: auto; } /* productos.html */
+
+}
+
+/*---------------------------------------------------------------------- 
+FIN MEDIA QUERIES */

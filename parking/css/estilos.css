@@ -1,0 +1,1185 @@
+@charset "utf-8";
+/* Carga hojas de estilo complementarias */
+@import url("animaciones.css");
+@import url("contacto.css");
+@import url("galeria.css");
+@import url("inicioyproductos.css");
+@import url("terminos.css");
+
+/*
+-Autor/Author................Arturo Casas (arzzz@hotmail.es)
+-Descripción/Description.....Hoja de estilos principal con resolución móvil por defecto (mobile first) y adaptable a toda resolución y dispositivo/Main stylesheet designed with care on mobile first and responsive for all resolution and devices
+-Versión/Version.............0.0
+-Ayuda para la lectura/
+Help reading.................TODOS los elementos están ordenados alfabéticamente dentro de sus apartados (por ejemplo: header o footer) y siempre de selector menos específico a más específico, pseudo-clases y eventos. Todos los selectores están anidados hasta su raíz excepto clases o elementos que compartan estilos en varios documentos/EVERY element is alphabetically ordered inside her group (i.e: header or footer) and from lower to more specific, followed by pseudo-classes and events. Selectors are nested in all of its parents
+-Llamada desde/Called from...index.php
+-Actúa sobre/Affects on......index.php, cabecera.html, contacto.html, galeria.html, inicio.html, pie.html, productos.html, terminos.html
+*/
+
+/*---------------------------------------------------------------------- 
+ESTILOS COMUNES */ 
+
+/* Carga de fuente alojada en el servidor */
+@font-face {
+    font-family: "pt_serifregular";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/PT-Serif/ptserif_regular_macroman/PTF55F-webfont.eot");
+    src: url("../fonts/PT-Serif/ptserif_regular_macroman/PTF55F-webfont.eot?#iefix") format("embedded-opentype"),
+         url("../fonts/PT-Serif/ptserif_regular_macroman/PTF55F-webfont.woff") format("woff"),
+         url("../fonts/PT-Serif/ptserif_regular_macroman/PTF55F-webfont.ttf") format("truetype"),
+         url("../fonts/PT-Serif/ptserif_regular_macroman/PTF55F-webfont.svg#pt_serifregular") format("svg");
+}
+
+/* Carga de fuente alojada en el servidor */
+@font-face {
+    font-family: "pt_serifitalic";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/PT-Serif/ptserif_italic_macroman/PTF56F-webfont.eot");
+    src: url("../fonts/PT-Serif/ptserif_italic_macroman/PTF56F-webfont.eot?#iefix") format("embedded-opentype"),
+         url("../fonts/PT-Serif/ptserif_italic_macroman/PTF56F-webfont.woff") format("woff"),
+         url("../fonts/PT-Serif/ptserif_italic_macroman/PTF56F-webfont.ttf") format("truetype"),
+         url("../fonts/PT-Serif/ptserif_italic_macroman/PTF56F-webfont.svg#pt_serifitalic") format("svg");
+}
+
+* { -webkit-tap-highlight-color: rgba(0,0,0,0)!important; } /* NO ESTÀNDAR: elimina el resaltado al clicar/pulsar en Android OS */
+
+/* Estilos comunes de color y transición para todos los links */
+a,
+a:visited {
+	color: rgba(102,0,0,1);
+	color: rgb(102,0,0);
+	cursor: pointer;
+	text-decoration: none;
+    transition: color 0.3s 0.3s ease-out!important;
+}
+
+/* Estilos comunes de color y transición para todos los links */
+a:active,
+a:focus,
+a:hover { 
+	color: rgba(205,205,205,1)!important;
+	color: rgb(205,205,205)!important;
+    transition: color 0.2s ease-out!important;
+}	
+
+body { background-color: rgba(115,115,115,1); }
+
+body,
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+/* Complemento para contacto.html, galeria.html, inicio.html y productos.html*/
+div[id^="main"] {
+	background: rgba(150,150,150,1);
+	background: -moz-linear-gradient(top, rgba(150,150,150,1) 0%, rgba(115,115,115,1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(150,150,150,1)), color-stop(100%, rgba(115,115,115,1)));
+	background: -webkit-linear-gradient(top, rgba(150,150,150,1) 0%, rgba(115,115,115,1) 100%);
+	background: -o-linear-gradient(top, rgba(150,150,150,1) 0%, rgba(115,115,115,1) 100%);
+	background: -ms-linear-gradient(top, rgba(150,150,150,1) 0%, rgba(115,115,115,1) 100%);
+	background: linear-gradient(to bottom, rgba(150,150,150,1) 0%, rgba(115,115,115,1) 100%);
+	margin-bottom: 195px; /* Por footer pegado */
+	overflow: hidden; /* No se sobrepasarán los límites de <main> */
+	width: 100%;
+}
+
+/* Estilos para dirección que se mostrará en versión de impresión */
+div.contenedor-imprimir { display: none!important; }
+
+/* Estilos para elemento que ayuda a mantener en la parte inferior el <footer> */
+div#pega-footer {
+	border: 1px solid black; /* Para footer pegado */
+	box-sizing: border-box;
+	min-height: 100%;
+	position: relative;
+}
+
+footer, 
+header {
+	font-family: "pt_serifitalic";
+    width: 100%;
+}
+
+html { 
+	background-color: rgba(0,0,0,1);
+	overflow-y: scroll; /* Previene que al aparecer barra scroll mueva los elementos */ 
+}
+
+/* Estilos comunes para todos los elementos <noscript> */
+noscript {
+	font-family: "pt_serifitalic";
+	font-size: 14px;
+	-webkit-user-select: none;
+	-moz-user-select: none; 
+	-ms-user-select: none;
+	user-select: none; 
+}
+
+/*---------------------------------------------------------------------- 
+FIN ESTILOS COMUNES */
+
+
+/*---------------------------------------------------------------------- 
+ESTILOS HEADER - cabecera.html */
+
+header {
+	background-color: rgba(0,0,0,1);
+	color: rgba(179,179,179,1);
+	height: 140px;
+}
+
+/* ESTILOS LOGO HEADER 
+- Los siguientes elementos tienen las clases dinámicas .subido y .menus-fijo, añadidos en pegarTitulo() de main.js que valen para situar dinámicamente el encabezado "pegado" en la parte superior de la pantalla cuando el usuario realice scroll. */
+
+/* Estilos para fijar el contenedor del encabezado fijo por defecto */ 
+div#header-logo {
+	background-color: rgba(0,0,0,1);
+	-webkit-box-shadow: 0 0 0 0 rgba(0,0,0,.5); /* Sombra a 0 que crece */
+	box-shadow: 0 0 0 0 rgba(0,0,0,.5); /* Sombra a 0 que crece */
+	height: 140px;
+	position: absolute; right: 0; top: 0;
+	text-align: center;
+	width: 100%;
+	z-index: 2; /* Las imágenes de galeria.html se superpondrían si no se establece */
+}
+
+/* Estilos para contenedor de encabezado */
+div#header-logo,
+div#header-logo.menus-fijo {
+	height: 140px; 
+	overflow: visible!important; /* Permitido sobrepasar los límites para mapa */
+	position: relative; /* Para centrar imagen verticalmente */
+	width: 100%;
+}
+
+/* Estilos para contenedor de encabezado con clase que lo "pega" */
+div#header-logo.menus-fijo { 
+	-webkit-box-shadow: 0 2px 4px 2px rgba(0,0,0,.5); /* Sombra crece */
+	box-shadow: 0 2px 4px 2px rgba(0,0,0,.5); /* Sombra crece */	
+	height: 50px!important;
+	position: fixed!important; right: 0; top: 0;
+}
+
+/* Estilos para contenedor de encabezado con clase que lo "sube" */
+div#header-logo.subido { /*position: fixed;*/ top: -300px!important; }
+
+/* Estilo para <div> contenedor de logos */
+div#header-logo div#header-imgs { height: 90px; }/* Restantes de los 140px que tiene <header> menos los 50px de <div> */
+
+/* Estilo para <div> contenedor de logos cuando se le añade clase que lo "pega" */
+div#header-logo div#header-imgs.menus-fijo { height: 50px; } 
+
+/* Estilos para logo largo */
+div#header-logo div#header-imgs a#logo-imgs img#logo-largo {
+	height: auto;
+	margin: 0 auto;
+	max-height: 80%;
+	position: relative; top: 15%;
+	width: auto;
+	z-index: 50; 
+} 
+
+/* Estilos para logo grande */
+div#header-logo div#header-imgs a#logo-imgs img#logo-largo:active { /*position: absolute;*/ top: 17%; } /* Movimiento en el logo al pulsarlo */
+
+/* Estilos para logo grande con clase que pega encabezado */
+div#header-logo div#header-imgs a#logo-imgs img#logo-largo.menus-fijo { display: none; } 
+
+/* Estilos para logo pequeño */
+div#header-logo div#header-imgs a#logo-imgs img#logo-pegado { display: none; }
+
+/* Estilos para logo pequeño con clase que pega encabezado */
+div#header-logo div#header-imgs a#logo-imgs img#logo-pegado.menus-fijo {
+	display: block;
+	max-height: 40px;
+	max-width: 220px;
+	min-height: 35px;
+	position: absolute; left: 49%; top: 52%; /* Porcentaje establecido según el resultado en pantalla; logo en itálica provoca desplazamiento, esto provocará que debamos centrar al logo el elemento <p> */
+	-webkit-transform: translate(-50%,-58%); 
+	transform: translate(-50%,-58%); /* Transformación para centrar imagen verticalmente */
+	z-index: 50; 
+}
+
+/* Movimiento en el logo al pulsarlo */
+div#header-logo div#header-imgs a#logo-imgs img#logo-pegado.menus-fijo:active { 
+	/*position: absolute;*/ top: 53%; 
+	transition: unset!important;
+} 
+
+/* Estilos para contenedor de mapa flotante, dirección y teléfono */
+div#header-logo div#donde {
+	color: rgba(115,115,115,1);
+	display: block;
+	font-size: 12px;
+	height: 50px;
+	line-height: 50px;
+	overflow: visible;
+	position: absolute; left: 0; top: 90px; /*95px;*/
+	text-align: center;
+	width: 100%;
+	z-index: 50;
+}
+
+/* Estilos para contenedor de mapa flotante, dirección y teléfono con clase que pega encabezado */
+div#header-logo div#donde.menus-fijo { 
+	/*position: absolute;*/ top: 0; 
+	z-index: 49; /* Detrás de logo pegado */
+}
+
+/* <input> oculto del que usaremos el evento :checked para mostrar un mapa */
+div#header-logo div#donde input#boton-mapa { display: none; }
+
+/* Estilos para label que engloba los elementos de dirección, teléfono y mapa */
+div#header-logo div#donde label.mapa-flota { 
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none; 
+	-ms-user-select: none;
+	user-select: none; 
+}
+
+/* Estilos para el contenedor del <iframe> que carga mapa  */
+div#header-logo div#donde label.mapa-flota + span#contenedor-mapa-flotante { 
+	background-color: rgba(180,180,180,1);
+	border-radius: 3px;
+	-webkit-box-shadow: 0 0 10px 5px rgba(0,0,0,.75);
+	box-shadow: 0 0 10px 5px rgba(0,0,0,.75);
+	height: 0;
+	opacity: .1;
+	position: absolute; left: 2%; top: 60px;
+	visibility: hidden; /* Oculto por defecto */
+	width: 96%;
+	z-index: 99; /* Por encima de todo el resto de elementos */
+}
+
+/* Al producirse el evento :checked se aplican estilos sobre contenedor de <iframe> que contiene mapa*/
+div#header-logo div#donde input#boton-mapa:checked + label.mapa-flota + span#contenedor-mapa-flotante { 
+	height: 350px;
+	opacity: 1;
+	overflow: hidden; 
+	/*position: absolute;*/ top: 65px;
+	visibility: visible!important;
+}
+
+/* Estilos para insertar botón invisible que se mostrará con Javascrit y en evento :checked*/
+div#header-logo div#donde label.mapa-flota + span#contenedor-mapa-flotante button { opacity: 0; }
+
+/* Estilos para botón al producirse evento :checked y añadirse clase con Javascript */
+div#header-logo div#donde input#boton-mapa:checked + label.mapa-flota + span#contenedor-mapa-flotante button.mostrar-boton {
+	background: url("../img/logos/favicon.png") center no-repeat, rgba(255,255,255,1);
+	background-size: 80%;
+	border: 0;
+	border-radius: 3px;
+	-webkit-box-shadow: 0 2px 6px 0 rgba(0,0,0,.3);
+	box-shadow: 0 2px 6px 0 rgba(0,0,0,.3);
+	height: 42px;
+	opacity: 1;
+	position: absolute; bottom: 74.5px; left: 10px;
+	transition: opacity .5s .5s, background-color .2s;
+	width: 42px;
+}
+
+div#header-logo div#donde input#boton-mapa:checked + label.mapa-flota + span#contenedor-mapa-flotante button.mostrar-boton:active,
+div#header-logo div#donde input#boton-mapa:checked + label.mapa-flota + span#contenedor-mapa-flotante button.mostrar-boton:focus,
+div#header-logo div#donde input#boton-mapa:checked + label.mapa-flota + span#contenedor-mapa-flotante button.mostrar-boton:hover { background-color: rgba(220,220,220,1); }
+
+/* Estilos para <iframe> que carga mapa dinámicamente */
+div#header-logo div#donde label.mapa-flota + span#contenedor-mapa-flotante iframe#mapa-flotante { 
+	border: 0;
+	border-radius: 3px; /* El contenedor ya los tiene, al transigir se elimina del contenedor */
+	height: 100%; 
+	min-height: 350px;
+	width: 100%; 
+}
+
+/* Estilos para mensaje de aviso que aparece sobre mapa */
+div#header-logo div#donde label.mapa-flota + span#contenedor-mapa-flotante span#mapa-texto {
+	font-size: 14px;
+	height: 0;
+	overflow: hidden;
+	visibility: hidden;
+}
+
+/* Estilos para texto dentro de <span> que aparece si el mapa en <iframe> no carga */
+div#header-logo div#donde input#boton-mapa:checked + label.mapa-flota + span#contenedor-mapa-flotante span#mapa-texto {
+	background-color: rgba(180,180,180,1);
+	-webkit-box-shadow: 0 0 5px 1px rgba(0,0,0,.75);
+	box-shadow: 0 0 5px 1px rgba(0,0,0,.75);
+	height: 24px; 
+	line-height: 24px; /* Para centrar texto y restablecer el heredado de <div id="donde"> */
+	position: absolute; bottom: 0; right: 0;
+	transition: box-shadow .3s 1s, height .3s 1s; /* Transición para la altura y la sombra */
+	visibility: visible;
+	width: 100%;	
+}
+
+/* Estilos por defecto para <a> que contiene los iconos de navegación para abrir y cerrar mapa desplegable */
+div#header-logo div#donde label.mapa-flota span#donde-img {
+	height: 25px;
+	position: absolute; top: 10px;
+	width: 25px;
+}
+
+/* Reposicionar <a> que contiene los iconos de navegación para abrir y cerrar mapa desplegable al añadir clase que "pega" el encabezado*/
+div#header-logo div#donde.menus-fijo label.mapa-flota span#donde-img { /*position: absolute;*/ right: 0; }
+
+/* Estilos comunes para las imágenes de navegación de abrir y cerrar mapa desplegable */
+div#header-logo div#donde label.mapa-flota span#donde-img img { 
+	cursor: pointer;	
+	display: inline;
+	height: 25px;
+	position: absolute; left: 4px; top: 0;
+	width: 25px;
+}
+
+/* Estilos al pulsar sobre los iconos de abrir y cerrar mapa */
+div#header-logo div#donde label.mapa-flota span#donde-img img:active { /*position: absolute;*/ top: 1px; } /* Desplazamiento superior al pulsar */
+
+/* Estilos para la imagen de cerrar mapa */
+div#header-logo div#donde label.mapa-flota span#donde-img img#img-aspa { visibility: hidden; } /* Oculto por defecto */
+
+/* Estilos para igualar la transición a la de los enlaces */
+div#header-logo div#donde label.mapa-flota span#direc-cabecera,
+div#header-logo div#donde.menus-fijo label.mapa-flota span#direc-cabecera { transition: color .3s .3s ease-out; }
+
+/* Estilos para igualar la transición a la de los enlaces */
+div#header-logo div#donde label.mapa-flota span#direc-cabecera:active,
+div#header-logo div#donde label.mapa-flota span#direc-cabecera:focus,
+div#header-logo div#donde label.mapa-flota span#direc-cabecera:hover,
+div#header-logo div#donde.menus-fijo label.mapa-flota span#direc-cabecera:active,
+div#header-logo div#donde.menus-fijo label.mapa-flota span#direc-cabecera:focus,
+div#header-logo div#donde.menus-fijo label.mapa-flota span#direc-cabecera:hover { 
+	color: rgba(205,205,205,1);
+	transition: color .2s ease-out; 
+}
+
+/* Estilos comunes para las imágenes de navegación de abrir y cerrar mapa desplegable cuando está pegado */
+div#header-logo div#donde.menus-fijo label.mapa-flota span#donde-img img { /*position: absolute;*/	left: auto; right: 8px; }
+
+/* Estilos al pulsar sobre los iconos de abrir y cerrar mapa cuando están "pegados" */
+div#header-logo div#donde.menus-fijo label.mapa-flota span#donde-img img:active { /*position: absolute;*/ top: 1px; }
+
+
+/* Al producirse el evento :checked se aplican estilos sobre <img> */
+div#header-logo div#donde input#boton-mapa:checked + label.mapa-flota span#donde-img img#img-aspa { 
+ 	height: 100%;
+ 	visibility: visible; 
+	width: 100%; 
+}
+
+/* Al producirse el evento :checked se aplican estilos sobre <img> */
+div#header-logo div#donde input#boton-mapa:checked + label.mapa-flota span#donde-img img#img-chincheta { 
+	height: 20px;
+	visibility: hidden; 
+	width: 0;
+}
+
+/* Estilos para ocultar elementos en resoluciones bajas */
+div#header-logo div#donde.menus-fijo label.mapa-flota span#direc-cabecera, 
+div#header-logo div#donde.menus-fijo label.mapa-flota span#telf-cabecera a#telf-solo { display: none; }
+
+/* Se muestra contenedor de teléfono al añadir clase que "pega" el encabezado */
+div#header-logo div#donde.menus-fijo label.mapa-flota span#telf-cabecera { 
+	display: block; 
+	text-align: right;
+}
+
+/* Estilos para el enlace del teléfono */
+div#header-logo div#donde label.mapa-flota span#telf-cabecera a#telf-solo {
+	border-right: 2px solid rgba(102,0,0,1);
+	color: rgba(115,115,115,1);
+	margin-right: 5px;
+	padding: 0 10px 0 0; /* En navegadores móvil se aprecia desplazado el borde derecho, aplicando padding se "arregla" */
+}
+
+div#header-logo div#donde.menus-fijo label.mapa-flota span#telf-cabecera a#telf-img {
+	border-right: 2px solid rgba(102,0,0,1); 
+	height: 50px; 
+	position: absolute; right: 40px; top: 0px; /* Iguala la posición con img#chincheta y img#aspa */
+}
+
+/* Estilos para la imagen de teléfono, oculta por defecto */
+div#header-logo div#donde label.mapa-flota span#telf-cabecera a#telf-img img { display: none; }
+
+/* Se muestra imagen de teléfono al añadir clase que "pega" el encabezado */
+div#header-logo div#donde.menus-fijo label.mapa-flota span#telf-cabecera a#telf-img img { 
+	display: inline; 
+	height: 25px;
+	position: absolute; right: 10px; top: 10px; /* Iguala la posición con img#chincheta y img#aspa */
+	width: 25px;
+}
+
+/* FIN ESTILOS LOGO HEADER */
+
+/* ESTILOS MENÚ */
+
+/* Estilos para el contenedor de los elementos del menú */
+nav#menus {
+	display: block;
+	height: 50px;
+	position: absolute; top: 90px;
+	width: 50px;
+	z-index: 55;
+}
+
+/* Estilos para el contenedor de los elementos del menú cuando se le ha añadido clase con Javascript para fijarlo en scroll */
+nav#menus.menus-fijo { /*position: absolute;*/ top: 0; }
+
+/* Estilos para el contenedor de la lista <ul> que contiene los elementos de navegación */
+nav#menus div.menu-navegacion {
+	height: 100%;
+	margin: 0;
+	list-style: none;
+	overflow: visible;  /* Los elementos contenidos pueden sobrepasar los bordes del contenedor */
+	padding: 0;
+	position: relative; /* Para superponer los menús */
+	width: 100%;
+}
+
+/* Elemento <input> que hará de control para desplegar menú */
+nav#menus div.menu-navegacion input#boton-control { display: none; } /* Oculto por defecto */
+
+/* Estilos para <label> contenedor de todos los elementos <span> */
+nav#menus div.menu-navegacion label.menu-contenedor {
+	cursor: pointer;
+	display: block;  /* Oculto en resoluciones mayores, lo mostramos en bajas */
+}
+
+nav#menus div.menu-navegacion input#boton-control:checked + label.menu-contenedor { position: absolute; left: 0; }
+
+/* Situando los elementos que darán sombra a los menús 
+nav#menus div.menu-navegacion input#boton-control:checked + label.menu-contenedor div { position: absolute; top: 0; }*/
+
+/* Estilos para todos los elementos <span> y para los elementos de sombreado del menú */
+nav#menus div.menu-navegacion label.menu-contenedor span {
+	height: 50px;
+	line-height: 50px;
+	position: absolute; /* Posiciono todos los elementos <span> conjuntamente, se especificarán más propiedades absolutas por separado para cada <span> */
+}
+
+/* Estilos comunes para <span> excepto <span id="boton"> y <span class="lineash"> */
+nav#menus div.menu-navegacion label.menu-contenedor span:not(#boton):not(.lineash) { 
+	background-color: rgba(16,16,16,1);
+	height: 50px; 
+	overflow: hidden;
+	visibility: hidden; 
+	width: 0;
+}
+
+/* Estilos comunes para los elementos <span> del menú excepto para <span id="boton"> y <span class="lineash"> cuando se produzca evento checked */
+nav#menus div.menu-navegacion input#boton-control:checked + label.menu-contenedor span:not(#boton):not(.lineash) { 
+	background-color: rgba(16,16,16,.95);
+	transition: width .5s; 
+	visibility: visible; /* Se muestra */
+	width: 200px; /* Se le da anchura */
+}
+
+/* Estilos del menú <span> del menú activo */
+nav#menus div.menu-navegacion label.menu-contenedor span:not(#boton):not(.lineash).activa { background-color: rgba(115,115,115,1); }
+
+/* Estilos del menú <span> del menú activo cuando se produzca evento checked */
+nav#menus div.menu-navegacion input#boton-control:checked + label.menu-contenedor span:not(#boton):not(.lineash).activa { background-color: rgba(115,115,115,.95); }
+
+/* Estilos para el elemento <span> que hace de botón y contiene las "líneas" del "icono" de menú */
+nav#menus div.menu-navegacion label.menu-contenedor span#boton {
+	display: block; /* Oculto en resoluciones mayores, lo mostramos */
+	height: 100%;
+	margin: 0 10px;
+	width: 25px;
+	z-index: 999; /* Mostrado por encima de todo */
+}
+
+/* Al producirse el evento :checked se desplazan los elementos <span> contenidos en él según los estilos a continuación */
+nav#menus div.menu-navegacion input#boton-control:checked + label.menu-contenedor span#contacto { 
+	border-bottom: 1px solid rgba(0,0,0,.2);
+	border-left: 1px solid rgba(0,0,0,.2);
+	border-right: 1px solid rgba(0,0,0,.2);
+	/*position: absolute;*/ top: 196px; 
+}
+nav#menus div.menu-navegacion input#boton-control:checked + label.menu-contenedor span#galeria { 
+	border-left: 1px solid rgba(0,0,0,.2);
+	border-right: 1px solid rgba(0,0,0,.2);
+	/*position: absolute;*/ top: 146px; 
+}
+nav#menus div.menu-navegacion input#boton-control:checked + label.menu-contenedor span#inicio { 
+	border-left: 1px solid rgba(0,0,0,.2);
+	border-right: 1px solid rgba(0,0,0,.2);
+	border-top: 1px solid rgba(0,0,0,.2);
+	/*position: absolute;*/ top: 45px; 
+}
+nav#menus div.menu-navegacion input#boton-control:checked + label.menu-contenedor span#productos { 
+	border-left: 1px solid rgba(0,0,0,.2);
+	border-right: 1px solid rgba(0,0,0,.2);
+	/*position: absolute;*/ top: 96px; 
+}
+
+/* Estilos comunes para todos los <a> dentro de <span> del menú */	
+nav#menus div.menu-navegacion label.menu-contenedor span a {
+	color: rgba(115,115,115,1);
+	display: block; /* <a> ocupa todo el contenedor */
+	font-size: 16px;
+	position: absolute; left: -500px;
+	text-align: center;
+	transition: 5s;
+	width: 100%;
+}
+
+/* Estilos cuando se pulsa elemento del menú */
+nav#menus div.menu-navegacion label.menu-contenedor span a:active { /*position: absolute;*/ top: 1px; }
+
+/* Estilos comunes para todos los <a> dentro de <span> del menú */
+nav#menus div.menu-navegacion input#boton-control:checked + label.menu-contenedor span a { /*position: absolute;*/ left: 0; } /* Para que parezca que aparece desde izquierda */
+
+/* Estilos para <a> del menú <span> activo */
+nav#menus div.menu-navegacion label.menu-contenedor span.activa a { 
+	color: rgba(102,0,0,1);
+	text-decoration: underline;
+}
+
+/* Estilos comunes para todas las líneas del "icono" de menú */
+nav#menus div.menu-navegacion label.menu-contenedor span#boton span.lineash {
+	background-color: rgba(115,115,115,1);
+	float: left; /* Todas a la izquierda */
+	height: 2px;
+	/*position: absolute;*/ left: 0;
+	transition: .3s; /* Transición para todas las transformaciones de las líneas del "icono" */
+	width: 100%;
+}
+
+ /* Reajuste para que no haya animación cuando el menú esté desplegado 
+nav#menus div.menu-navegacion input#boton-control:checked + label.menu-contenedor span div.lineash { animation: unset!important; }*/
+
+/* Posicionamiento específico para cada línea del "icono" del menú */
+nav#menus div.menu-navegacion label.menu-contenedor span#boton span#linea1 { /*position: absolute;*/ top: 12px; }
+
+/* Al producirse el evento :checked se transforman 5 líneas en un aspa */
+nav#menus div.menu-navegacion input#boton-control:checked + label.menu-contenedor span#boton span#linea1 {
+	height: 7px;
+	/*position: absolute;*/ top: 20px!important; 
+	-ms-transform: rotate(45deg); 
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+	width: 30px;
+}
+
+/* Posicionamiento específico para cada línea del "icono" del menú */
+nav#menus div.menu-navegacion label.menu-contenedor span#boton span#linea2 { /*position: absolute;*/ top: 17px; }
+
+/* Al producirse el evento :checked se transforman 5 líneas en un aspa */
+nav#menus div.menu-navegacion input#boton-control:checked + label.menu-contenedor span#boton span#linea2 { width: 0; }
+
+
+/* Posicionamiento específico para cada línea del "icono" del menú */
+nav#menus div.menu-navegacion label.menu-contenedor span#boton span#linea3 { /*position: absolute;*/ top: 22px; }
+
+/* Al producirse el evento :checked se transforman 5 líneas en un aspa */
+nav#menus div.menu-navegacion input#boton-control:checked + label.menu-contenedor span#boton span#linea3 { height: 0; }
+
+/* Posicionamiento específico para cada línea del "icono" del menú */
+nav#menus div.menu-navegacion label.menu-contenedor span#boton span#linea4 { /*position: absolute;*/ top: 27px; }
+
+/* Al producirse el evento :checked se transforman 5 líneas en un aspa */
+nav#menus div.menu-navegacion input#boton-control:checked + label.menu-contenedor span#boton span#linea4 { 
+	/*position: absolute;*/ right: 0; 
+	width: 0; 
+}
+
+/* Posicionamiento específico para cada línea del "icono" del menú */
+nav#menus div.menu-navegacion label.menu-contenedor span#boton span#linea5 { /*position: absolute;*/ top: 32px; } 
+
+/* Al producirse el evento :checked se transforman 5 líneas en un aspa */
+nav#menus div.menu-navegacion input#boton-control:checked + label.menu-contenedor span#boton span#linea5 {
+	height: 7px;
+	/*position: absolute;*/ top: 20px!important; 
+	-ms-transform: rotate(-45deg); 
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg); 
+	width: 30px;
+}
+
+/* FIN ESTILOS MENÚ */	
+
+/*---------------------------------------------------------------------- 
+FIN ESTILOS HEADER - cabecera.html*/
+
+
+/*---------------------------------------------------------------------- 
+ESTILOS FOOTER - pie.html*/
+
+footer {
+	background: rgba(115,115,115,1);
+	border-top: 2px solid rgba(102,0,0,1);
+	box-sizing: border-box;
+	color: rgba(0,0,0,1);
+	font-size: 18px;
+	height: 165px;
+	margin-bottom: 30px; /* Franja negra al final de la página */
+	overflow: visible!important; /* Lo sobresaliente se muestra */
+	padding-bottom: 15px;
+	padding-top: 15px;
+	position: absolute; bottom: 0;
+}
+
+/* Estilos para el párrafo que contiene la imagen Handmade */
+footer div#footer-handmade {
+	height: 60px;
+	padding-top: 20px;
+	text-align: center;
+	width: 100%;
+}
+
+footer div#footer-handmade a {
+	display: block;
+	height: 100%;
+}
+
+/* Estilos para la imagen de logo Handmade by Art */
+footer div#footer-handmade a img#img-handmade { 
+	display: block;
+	cursor: pointer;
+	height: 100%;
+	margin: 0 auto;
+}
+
+/* Estilos para contenedor de elementos de navegación */
+footer div#footer-nav nav#pie-nav {
+	font-size: 15px;
+	height: 30px;
+	line-height: 30px; /* Igual que la altura para centrar el texto verticalmente */
+	margin: 15px 0;
+	text-align: center;
+	width: 100%;
+}
+
+/* Estilos para todos los <a> dentro de <nav> */
+footer div#footer-nav nav#pie-nav a {
+	color: rgba(0,0,0,1);
+	cursor: pointer;
+	font-size: 14px;
+	padding: 0 5px; /* Derecha e izquierda */
+}
+
+/* Estilos para todos los <a> dentro de <nav> menos el primero */
+footer div#footer-nav nav#pie-nav a:not(.terminos) { 
+	border-left: 2px solid rgba(102,0,0,1)!important;
+	padding-top: 5px; /* En navegadores móvil se aprecia desplazado el borde derecho, aplicando padding se "arregla" */
+}
+
+/* Estilos para <a class="noscript"> */
+footer div#footer-nav nav#pie-nav a.noscript { display: none; }  /* Oculto por defecto, sólo se mostrará si existe Javascript */
+
+/* Estilos para el contenedor del fondo que muestra el resto de contenido */
+footer div#footer-nav nav#pie-nav div.contenedor-fondo {
+    -webkit-animation: aparecer .3s forwards; 
+    animation: aparecer .3s forwards;
+    background: url("../img/logos/logocycrepetitivo.png") rgba(0,0,0,.9);
+    display: none; /* Oculto por defecto, lo mostramos con Javascript */
+ 	height: 100%;
+ 	overflow: hidden; /* iOS */
+	opacity: 0; /* Animación */
+    position: fixed; bottom: 0; left: 0; right: 0; top: 0; /* Posición fijada para ocupar el 100% de la pantalla del navegador */
+    text-align: center;
+    width: 100%; 
+    z-index: 99; /* Por encima de la página */
+}
+
+/* Estilos de contenedor de <iframe> que habilita el scroll en iOS añadiendo clase con Javascript */
+footer div#footer-nav nav#pie-nav div.contenedor-fondo div#ios-scroller {
+	height: 90%;
+ 	overflow: hidden;
+ 	position: relative; left: 50%; top: 50%;
+	transform: translate(-50%,-50%);
+ 	width: 90%;
+}
+
+/* Estilos para clase que se añade con Javascript al navegar desde iOS */
+footer div#footer-nav nav#pie-nav div.contenedor-fondo div#ios-scroller.si-ios {
+	-webkit-overflow-scrolling: touch; /* iOS */
+ 	overflow-y: scroll; /* iOS */
+ }
+
+/* Estilos para el contenedor de los botones */
+footer div#footer-nav nav#pie-nav div.contenedor-fondo div#ios-scroller div#contenedor-btn-term-pie {
+	background: rgba(0,0,0,.4)!important;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 3px;
+	display: block; 
+	height: 50px;
+    margin: 0;
+    opacity: .2;
+    padding: 0;
+    position: fixed; right: 1%; top: 1%;
+    transition: opacity .5s;
+	width: 140px;
+	z-index: 100;
+}
+
+/* Estilos para restablecer la opacidad quitada con Javascript */
+footer div#footer-nav nav#pie-nav div.contenedor-fondo div#ios-scroller div#contenedor-btn-term-pie:active,
+footer div#footer-nav nav#pie-nav div.contenedor-fondo div#ios-scroller div#contenedor-btn-term-pie:focus,
+footer div#footer-nav nav#pie-nav div.contenedor-fondo div#ios-scroller div#contenedor-btn-term-pie:hover { opacity: 1!important; }
+
+/* Estilos comunes para los botones de terminos.html */
+footer div#footer-nav nav#pie-nav div.contenedor-fondo div#ios-scroller div#contenedor-btn-term-pie button.term-btn-pie { 
+	border: 0;
+	cursor: pointer;
+	font-family: "pt_serifregular"!important;
+	height: 25px;
+	position: absolute; top: 15px;
+	width: 25px;
+	z-index: 100;
+}
+
+/* Estilos para eventos hover y active sobre todos los botones */
+footer div#footer-nav nav#pie-nav div.contenedor-fondo div#ios-scroller div#contenedor-btn-term-pie button.term-btn-pie:active,
+footer div#footer-nav nav#pie-nav div.contenedor-fondo div#ios-scroller div#contenedor-btn-term-pie button.term-btn-pie:focus { top: 15px; }
+footer div#footer-nav nav#pie-nav div.contenedor-fondo div#ios-scroller div#contenedor-btn-term-pie button.term-btn-pie:hover { top: 16px; }
+
+/* Estilos específicos para cada uno de los botones */
+footer div#footer-nav nav#pie-nav div.contenedor-fondo div#ios-scroller div#contenedor-btn-term-pie button#btn-cerrar-term-pie{
+	background: url("../img/iconos/aspa.png") center no-repeat;
+	background-size: 25px 25px;
+    /*position: absolute;*/ right: 10px;
+}
+
+/* Estilos específicos para el botón imprimir */
+footer div#footer-nav nav#pie-nav div.contenedor-fondo div#ios-scroller div#contenedor-btn-term-pie button#btn-imprimir-term-pie{
+	background: url("../img/iconos/imprimir.png") center no-repeat;
+	background-size: 25px 25px;
+	/*position: absolute;*/ right: 100px;
+}
+
+/* Estilos específicos para el botón nueva pestaña */
+footer div#footer-nav nav#pie-nav div.contenedor-fondo div#ios-scroller div#contenedor-btn-term-pie button#btn-nuevapes-term-pie{ 
+	background: url("../img/iconos/nuevapes.png") center no-repeat;
+	background-size: 25px 25px;
+	/*position: absolute;*/ right: 55px;
+}
+
+/* Estilos específicos para el botón volver */
+footer div#footer-nav nav#pie-nav div.contenedor-fondo div#ios-scroller div#contenedor-btn-term-pie button#btn-volver-term-pie{
+	background: url("../img/iconos/volver.png") center no-repeat;
+	background-size: 25px 25px;
+	display: none; /* Se mostrará con Javascript */
+	/*position: absolute;*/ right: 15px;
+}
+
+/* Estilos para <iframe> */
+footer div#footer-nav nav#pie-nav div.contenedor-fondo div#ios-scroller iframe {
+	-webkit-animation: .5s aparecer .05s forwards;
+    animation: .5s aparecer .05s forwards;
+	border: 0;
+	display: block; /* Evita que el contenedor tenga una franja inferior */
+	height: 100%;
+	opacity: 0; /* Animación */
+	width: 100%;
+}
+
+/* Estilos para el párrafo el nombre de la empresa */
+footer div#footer-nav p#pie-info {
+	font-size: 15px;
+	height: 30px;
+	line-height: 30px;
+	margin: 0;
+	text-align: center;
+	width: 100%;
+}
+
+/*---------------------------------------------------------------------- 
+FIN ESTILOS FOOTER - pie.html*/
+
+
+
+/*---------------------------------------------------------------------- 
+MEDIA QUERIES */
+
+/*** Resolución extremadamente pequeña ***/
+@media only screen and (max-width: 400px) {
+
+	/*---------------------------------------------------------------------- 
+	ESTILOS HEADER - cabecera.html */
+
+	/* Reajuste para que el logo pueda ser extra pequeño */
+	div#header-logo div#header-imgs a#logo-imgs img#logo-pegado.menus-fijo {
+		max-height: 35px;
+		max-width: 200px;
+		min-height: 30px;
+	}
+
+	/* Reajuste de posición necesarios al modificarles el tamaño */
+	div#header-logo div#donde label.mapa-flota span#donde-img img#img-aspa,
+	div#header-logo div#donde label.mapa-flota span#donde-img img#img-chincheta { /*position: absolute*/ left: 0; top: 4px; }
+
+	/* Reajuste de tamaño de los iconos del encabezado */
+	div#header-logo div#donde label.mapa-flota span#donde-img img#img-aspa,
+	div#header-logo div#donde label.mapa-flota span#donde-img img#img-chincheta, 
+	div#header-logo div#donde label.mapa-flota span#telf-cabecera a#telf-img img,
+	div#header-logo div#donde.menus-fijo label.mapa-flota span#telf-cabecera a#telf-img img {
+		height: 20px!important;
+		width: 20px!important;
+	}
+
+	/* Reajuste para ocultar el número de teléfono ya que se mostrará solo la imagen */
+	div#header-logo div#donde label.mapa-flota span#telf-cabecera a#telf-solo { display: none; }
+
+	/* Reajuste para la imagen del teléfono que será visible siempre */
+	div#header-logo div#donde label.mapa-flota span#telf-cabecera a#telf-img { 
+		border-right: 2px solid rgba(102,0,0,1);
+		display: inline; 
+		margin-right: 5px;
+		position: relative;
+	}
+
+	/* Reajuste para el enlace contenedor de imagen del teléfono cuando el menú está "pegado" */
+	div#header-logo div#donde.menus-fijo label.mapa-flota span#telf-cabecera a#telf-img { 
+		border-right: 2px solid rgba(102,0,0,1);
+		height: 50px;
+		position: absolute; right: 25px;
+	}
+
+	/* Reajustes de posición para la imagen del teléfono */
+	div#header-logo div#donde label.mapa-flota span#telf-cabecera a#telf-img img { 
+		display: inline; 	
+		position: absolute; right: 6px; bottom: -2px; 
+	}
+
+	/* Reajustes de posición para la imagen del teléfono cuando el menú esté "pegado" */
+	div#header-logo div#donde.menus-fijo label.mapa-flota span#telf-cabecera a#telf-img img { /*position: absolute;*/ right: 6px; top: 14px; }
+
+	/* Al producirse el evento :checked se transforman 5 líneas en un aspa */
+	nav#menus div.menu-navegacion input#boton-control:checked + label.menu-contenedor span#boton span#linea1 {
+		height: 6px;
+		/*position: absolute;*/ top: 23px!important; 
+		-ms-transform: rotate(45deg); 
+		-webkit-transform: rotate(45deg);
+		transform: rotate(45deg);
+		width: 25px;
+	}
+	/* Al producirse el evento :checked se transforman 5 líneas en un aspa */
+	nav#menus div.menu-navegacion input#boton-control:checked + label.menu-contenedor span#boton span#linea5 {
+		height: 6px;
+		/*position: absolute;*/ top: 23px!important; 
+		-ms-transform: rotate(-45deg); 
+		-webkit-transform: rotate(-45deg);
+		transform: rotate(-45deg); 
+		width: 25px;
+	}
+
+	/*---------------------------------------------------------------------- 
+	FIN ESTILOS HEADER - cabecera.html */
+
+} /* @media only screen and (max-width: 400px) */
+
+/*** Resolución media ***/
+@media only screen and (min-width: 721px) {
+
+	/*---------------------------------------------------------------------- 
+	ESTILOS COMUNES */
+
+	div[id^="main"] { margin-bottom: 145px; }
+
+	/*---------------------------------------------------------------------- 
+	FIN ESTILOS COMUNES */
+
+	/*---------------------------------------------------------------------- 
+	ESTILOS HEADER - cabecera.html */
+
+	header { height: 250px; }
+
+	/* ESTILOS ZONA LOGO HEADER */
+	
+	/* Reajuste para desactivar todas las transiciones */
+	.menus-fijo { transition: unset; }
+
+	/* Reajuste de tamaño para <div> contenedor de logos */
+	div#header-logo div#header-imgs { height: 200px; }
+
+	/* Reajuste de estilos para logo */ 	
+	div#header-logo div#header-imgs a#logo-imgs img#logo-largo { 
+		height: 60%;	 		
+		/*position: relative;*/ top: 20%;
+	} 
+
+	/* Reajuste de estilos para el logo cuando se pulsa */
+	div#header-logo div#header-imgs a#logo-imgs img#logo-largo:active { /*position: relative;*/ top: 20.5%; }
+
+	/* Reajuste de estilos para contenedor de mapa flotante, teléfono y dirección */
+	div#header-logo div#donde { 
+		font-size: 15px;
+		/*position: absolute;*/ top: 200px; /* Situado debajo del logo, desfijado en scroll */
+	} 
+
+	/* Se activa transición en despliegue de mapa en resolución alta */
+	div#header-logo div#donde input:checked + label.mapa-flota + span#contenedor-mapa-flotante { transition: all .3s ease-in; } /* Transición para la visibilidad, la altura, la opacidad y la posición top */
+
+	/* Reajuste para eliminar borde separador */
+	div#header-logo div#donde.menus-fijo label.mapa-flota span#telf-cabecera a#telf-img { border: 0; }
+
+	/* Reajuste de estilos para ocultar el icono del teléfono que lo sustituirá el número de teléfono */
+	div#header-logo div#donde.menus-fijo label.mapa-flota span#telf-cabecera a#telf-img img { display: none; }	
+
+	/* Reajuste de estilos para mostrar el número de teléfono sustituyendo al icono del teléfono */
+	div#header-logo div#donde.menus-fijo label.mapa-flota span#telf-cabecera a#telf-solo { 
+		display: inline; 
+		padding: 0 10px 0 0; /* En navegadores móvil se aprecia desplazado el borde derecho reseteamos al "pegar" el encabezado */
+		position: absolute; right: 35px;
+	}
+
+	/* FIN ESTILOS ZONA LOGO HEADER */
+
+	/* ESTILOS MENÚS */
+
+	/* Reajuste de estilos para <nav> contenedor del menú */
+	nav#menus { /*position: absolute;*/ top: 200px;	}
+
+	/* FIN ESTILOS MENÚS */
+
+	/*---------------------------------------------------------------------- 
+	FIN ESTILOS HEADER - cabecera.html */
+
+	/*---------------------------------------------------------------------- 
+	ESTILOS FOOTER - pie.html */
+	
+	/* Reajustes en <footer> para resoluciones altas */
+	footer {
+		height: 115px; /* Reajuste de altura */
+		/*padding: 0 20px;  Márgenes a derecha e izquierda */
+	}
+
+	/* Reajuste contenedor de logo */ 
+	footer div#footer-handmade { 
+		float: right; /* Logo Handmade a la derecha */
+		padding: 60px 10px 0 0; /* Reajuste para mostrarlo en la misma posición que en resolución por defecto respecto a la parte inferior*/
+		width: 200px;
+	} 
+
+	/* Reajuste para contenedor de navegación */
+	footer div#footer-nav { 
+		float: left; 
+		padding-left: 15px;
+	} 
+
+	/* Reajuste para situarlo a la izquierda, al lado del nombre de la empresa, contiene los elementos de navegación del <footer> */
+	footer div#footer-nav nav#pie-nav {
+		clear: left; /* Para que flote en el margen del contenedor */
+		text-align: left; /* Reajuste para centrar a la izquierda el texto */
+		width: auto;
+	}
+
+	/* Reajuste estilos <a class="terminos"> */
+	footer div#footer-nav nav#pie-nav a.terminos { padding-left: 0; } /* Especificamos padding para que se vea alineado a la izquierda */
+
+	/* Reajuste para que el párrafo que contiene el nombre de la empresa se sitúe a la izquierda y le floten los elementos de navegación a la derecha */
+	footer div#footer-nav p#pie-info { text-align: left; } /* Reajuste para centrar a la izquierda el texto */
+
+	/*---------------------------------------------------------------------- 
+	FIN ESTILOS FOOTER - pie.html */
+
+} /* @media only screen and (min-width: 720px) */
+
+
+/*** Resolución alta ***/
+@media only screen and (min-width: 1100px) {
+
+	/*---------------------------------------------------------------------- 
+	ESTILOS HEADER - cabecera.html */
+
+	/* Reajuste de estilos para logo */ 	
+	div#header-logo div#header-imgs a#logo-imgs img#logo-largo { 
+		height: 80%;
+		/*position: absolute;*/  bottom: 10%; 		
+	} 
+
+	/* Reajuste de estilos para el logo cuando se pulsa */
+	div#header-logo div#header-imgs a#logo-imgs img#logo-largo:active { /*position: absolute;*/ bottom: 9%; }
+	
+	
+	/* Reajuste para mostrar la dirección a la derecha en el encabezado normal y en el "pegado" */
+	div#header-logo div#donde label.mapa-flota span#direc-cabecera,
+	div#header-logo div#donde.menus-fijo label.mapa-flota span#direc-cabecera { 
+		display: inline; 
+		position: absolute; right: 35px;
+	}
+
+	/* Reajuste para mostrar el teléfono a la derecha en el encabezado normal */
+	div#header-logo div#donde label.mapa-flota span#telf-cabecera a#telf-solo { 
+		height: 20px; 
+		line-height: 20px;
+		padding: 0 10px 0 0; /* En navegadores móvil se aprecia desplazado el borde derecho, aplicando padding se "arregla" */
+		position: absolute; right: 255px; top: 15px; 
+	}
+
+	/* Reajuste para mostrar el teléfono a la derecha en el encabezado "pegado" */
+	div#header-logo div#donde.menus-fijo label.mapa-flota span#telf-cabecera a#telf-solo { 
+		height: 50px; 
+		line-height: 50px;
+		/*position: absolute;*/ right: 255px; top: 0;
+	}
+
+	/* Reajuste de la posición del contenedor de las imágenes de abrir y cerrar mapa */
+	div#header-logo div#donde label.mapa-flota span#donde-img { /*position: absolute;*/ right: 0; }
+
+	/*  Reajuste de posición de imagen que abre mapa */
+	div#header-logo div#donde label.mapa-flota span#donde-img img#img-aspa { /*position: absolute;*/ left: auto; right: 6px; }
+
+	/* Reajuste de estilos de posición para imagen que cierra mapa */
+	div#header-logo div#donde label.mapa-flota span#donde-img img#img-chincheta { /*position: absolute;*/ left: auto; right: 8px; }
+
+	/* ESTILOS MENÚS */
+
+	/* Reajuste para todos los elementos <span> */
+	nav#menus div.menu-navegacion label.menu-contenedor span:not(#boton):not(.lineash) {
+		/* Bug en chrome https://bugs.chromium.org/p/chromium/issues/detail?id=739348&can=1&q=box%20shadow%20flash&colspec=ID%20Pri%20M%20Stars%20ReleaseBlock%20Component%20Status%20Owner%20Summary%20OS%20Modified
+		-webkit-box-shadow: 0 0 0 0 rgba(16,16,16,.5) inset,
+	    0 0 0 0 rgba(102,0,0,.5) inset,
+	    0 0 0 0 rgba(102,48,48,.5) inset,
+	    0 0 0 0 rgba(108,32,32,.5) inset,
+	    0 0 0 0 rgba(77,0,0,.5) inset,
+	    0 0 0 0 rgba(115,64,64,.5) inset;
+		box-shadow: 0 0 0 0 rgba(16,16,16,.5) inset,
+	    0 0 0 0 rgba(102,0,0,.5) inset,
+	    0 0 0 0 rgba(102,48,48,.5) inset,
+	    0 0 0 0 rgba(108,32,32,.5) inset,
+	    0 0 0 0 rgba(77,0,0,.5) inset,
+	    0 0 0 0 rgba(115,64,64,.5) inset;  Sombra que crecerá en eventos */
+		height: 50px;
+		line-height: 50px;
+		opacity: 0; /* Para iniciar animación */
+		/*position: absolute;*/ left: auto; top: 0;
+		text-align: center;
+		transition: unset;
+		visibility: visible;
+		width: 80px;
+	}
+
+	/* Reajuste para mostrar sombra en los elementos <span> */
+	nav#menus div.menu-navegacion label.menu-contenedor span:not(#boton):not(.lineash):active,
+	nav#menus div.menu-navegacion label.menu-contenedor span:not(#boton):not(.lineash):focus,
+	nav#menus div.menu-navegacion label.menu-contenedor span:not(#boton):not(.lineash):hover {
+	    /* Bug en chrome https://bugs.chromium.org/p/chromium/issues/detail?id=739348&can=1&q=box%20shadow%20flash&colspec=ID%20Pri%20M%20Stars%20ReleaseBlock%20Component%20Status%20Owner%20Summary%20OS%20Modified
+	    -webkit-box-shadow: 160px 0 0 0 rgba(16,16,16,1) inset,
+	    360px 0 0 0 rgba(102,0,0,.3) inset,
+	    460px 0 0 0 rgba(102,48,48,.3) inset,
+	    1060px 0 0 0 rgba(108,32,32,.3) inset,
+	    1260px 0 0 0 rgba(77,0,0,.3) inset,
+	    1660px 0 0 0 rgba(115,64,64,.5) inset;
+	    box-shadow: 160px 0 0 0 rgba(16,16,16,1) inset,
+	    360px 0 0 0 rgba(102,0,0,.3) inset,
+	    460px 0 0 0 rgba(102,48,48,.3) inset,
+	    1060px 0 0 0 rgba(108,32,32,.3) inset,
+	    1260px 0 0 0 rgba(77,0,0,.3) inset,
+	    1660px 0 0 0 rgba(115,64,64,.5) inset;  Sombra crece */
+		transition: box-shadow 2s;
+	}
+
+	/*  Reajuste de estilo de <span> del menú activo */
+	nav#menus div.menu-navegacion label.menu-contenedor span:not(#boton):not(.lineash).activa { background-color: rgba(150,150,150,1); }
+
+	/* Reajuste para mostrar sombra en los elementos <span> */
+	nav#menus div.menu-navegacion label.menu-contenedor span:not(#boton):not(.lineash).activa:active,
+	nav#menus div.menu-navegacion label.menu-contenedor span:not(#boton):not(.lineash).activa:focus,
+	nav#menus div.menu-navegacion label.menu-contenedor span:not(#boton):not(.lineash).activa:hover {
+	    /* Bug en chrome https://bugs.chromium.org/p/chromium/issues/detail?id=739348&can=1&q=box%20shadow%20flash&colspec=ID%20Pri%20M%20Stars%20ReleaseBlock%20Component%20Status%20Owner%20Summary%20OS%20Modified
+	    -webkit-box-shadow: 160px 0 0 0 rgba(115,115,115,1) inset,
+	    360px 0 0 0 rgba(102,0,0,1) inset,
+	    460px 0 0 0 rgba(102,48,48,1) inset,
+	    1060px 0 0 0 rgba(108,32,32,1) inset,
+	    1260px 0 0 0 rgba(77,0,0,1) inset,
+	    1660px 0 0 0 rgba(115,64,64,.5) inset;
+	    box-shadow: 160px 0 0 0 rgba(115,115,115,1) inset,
+	    360px 0 0 0 rgba(102,0,0,1) inset,
+	    460px 0 0 0 rgba(102,48,48,1) inset,
+	    1060px 0 0 0 rgba(108,32,32,1) inset,
+	    1260px 0 0 0 rgba(77,0,0,1) inset,
+	    1660px 0 0 0 rgba(115,64,64,.5) inset;  Sombra crece */
+		transition: box-shadow 2s;
+	}
+
+	/* Reajuste para ocultar el botón de menú */
+	nav#menus div.menu-navegacion label.menu-contenedor span#boton { display: none; }
+
+	/* Reajuste de posiciones para los contenedores de los elementos de navegación del menú, se mostrarán uno al lado de otro */
+	nav#menus div.menu-navegacion label.menu-contenedor span#contacto { 
+		animation: .1s fadeInMenu .6s 1 forwards;
+		/*position: absolute;*/ top: auto!important; left: 240px!important; 
+	}
+	nav#menus div.menu-navegacion label.menu-contenedor span#galeria { 
+		animation: .2s fadeInMenu .5s 1 forwards;
+		/*position: absolute;*/ top: auto!important; left: 160px!important; 
+	}
+	nav#menus div.menu-navegacion label.menu-contenedor span#inicio { 
+		animation: .3s fadeInMenu .4s 1 forwards;
+		/*position: absolute;*/ top: auto!important; left: 0!important; 
+	}
+	nav#menus div.menu-navegacion label.menu-contenedor span#productos { 
+		animation: .4s fadeInMenu .3s 1 forwards;
+		/*position: absolute;*/ top: auto!important; left: 80px!important; 
+	}
+
+	/* Reajuste de estilos para los elementos <a> del menú */
+	nav#menus div.menu-navegacion label.menu-contenedor span a {
+		display: block;
+		font-size: 15px;
+		/*position: absolute;*/ left: auto;
+		line-height: 50px;
+		padding-top: 0;
+		text-align: center;
+	}
+		
+	nav#menus div.menu-navegacion label.menu-contenedor span:not(#boton).activa { animation: 0s fadeInMenu 0s 1 forwards; }
+
+	nav#menus div.menu-navegacion label.menu-contenedor span:not(#boton).activa:active a,
+	nav#menus div.menu-navegacion label.menu-contenedor span:not(#boton).activa:focus a,
+	nav#menus div.menu-navegacion label.menu-contenedor span:not(#boton).activa:hover a {
+		/*background-color: rgba(115,115,115,1);  BUG - Edge muestra borde inferior del color de box-shadow, para eliminarlo damos color al contenido */
+		transition: color .3s ease-in, background-color .3s 1s!important; /* BUG - Edge muestra borde inferior del color de box-shadow, para eliminarlo damos color al contenido */
+	}
+
+	/* FIN ESTILOS MENÚS */
+
+	/*---------------------------------------------------------------------- 
+	FIN ESTILOS HEADER - cabecera.html*/
+
+
+	/*---------------------------------------------------------------------- 
+	ESTILOS FOOTER - pie.html */
+	
+	/* Reajuste de estilo que se aplica sobre el borde derecho del elemento */
+	footer div#footer-nav nav#pie-nav a:not(.terminos) { padding-top: 0; } /* En navegadores móvil se aprecia desplazado el borde derecho, aplicando padding se "arregla" */
+
+	/*---------------------------------------------------------------------- 
+	FIN ESTILOS FOOTER - pie.html */
+
+} /* @media only screen and (min-width: 1100px) */
+
+
+/*** Resolución más alta ***/
+@media only screen and (min-width: 1280px) {
+
+	/*---------------------------------------------------------------------- 
+	ESTILOS HEADER - cabecera.html */
+
+	/* ESTILOS LOGO HEADER */
+
+	/* Reajuste de posición para moverlo a la derecha */
+	div#header-logo div#donde.menus-fijo label.mapa-flota span#telf-cabecera a#telf-solo { right: 255px; }
+
+	/* Al producirse el evento :checked se reajusta la altura del mapa para resoluciones altas */
+	div#header-logo div#donde input#boton-mapa:checked + label.mapa-flota + span#contenedor-mapa-flotante { height: 500px; }
+
+	div#header-logo div#donde input#boton-mapa:checked + label.mapa-flota + span#contenedor-mapa-flotante iframe { min-height: 350px; }
+
+	/* FIN ESTILOS LOGO HEADER */	
+
+	/*---------------------------------------------------------------------- 
+	FIN ESTILOS HEADER - cabecera.html */
+
+} /* @media only screen and (min-width: 1280px) */
+
+/*---------------------------------------------------------------------- 
+FIN MEDIA QUERIES */

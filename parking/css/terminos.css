@@ -1,0 +1,130 @@
+@charset "utf-8";
+
+/*
+-Autor/Author................Arturo Casas (arzzz@hotmail.es)
+-Descripción/Description.....Hoja de estilos complementaria a estilos.css para página de términos y condiciones/Complementary to estilos.css for terms and conditions page
+-Versión/Version.............0.0
+-Ayuda para la lectura/
+Help reading.................TODOS los elementos están ordenados alfabéticamente dentro de sus apartados (por ejemplo: header o footer) y siempre de selector menos específico a más específico, pseudo-clases y eventos. Todos los selectores están anidados hasta su raíz excepto clases o elementos que compartan estilos en varios documentos/EVERY element is alphabetically ordered inside her group (i.e: header or footer) and from lower to more specific, followed by pseudo-classes and events. Selectors are nested in all of its parents
+-Llamada desde/Called from...estilos.css
+-Actúa sobre/Affects on......terminos.html, terminosprecursor.html
+*/
+
+/* Elementos ocultos que se muestran en impresión */
+div.term-header { display: none!important; }
+
+/* Elemento de impresión */
+div.term-header div.term-header-logo {
+	margin: 0 auto;
+    max-width: 690px;
+    text-align: center;
+}
+
+/* Estilo para la imagen logo */
+div.term-header div.term-header-logo img { width: 95%; }
+
+/* Estilo para el texto */
+div.texto { /* En IE < 9 no tendrá gradiente */
+    background: rgba(220,220,220,1);
+	background: -moz-linear-gradient(45deg, rgba(220,220,220,1) 0%, rgba(220,220,220,1) 23%, rgba(240,240,240,1) 100%);
+	background: -o-linear-gradient(45deg, rgba(220,220,220,1) 0%, rgba(220,220,220,1) 23%, rgba(240,240,240,1) 100%);
+	background: -ms-linear-gradient(45deg, rgba(220,220,220,1) 0%, rgba(220,220,220,1) 23%, rgba(240,240,240,1) 100%);
+	background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(220,220,220,1)), color-stop(23%, rgba(220,220,220,1)), color-stop(100%, rgba(240,240,240,1)));
+	background: -webkit-linear-gradient(45deg, rgba(220,220,220,1) 0%, rgba(220,220,220,1) 23%, rgba(240,240,240,1) 100%);
+	background: linear-gradient(45deg, rgba(220,220,220,1) 0%, rgba(220,220,220,1) 23%, rgba(240,240,240,1) 100%); 
+    font-family: "pt_serifregular"!important;
+	padding: 10px 20px 10px 20px!important;
+}
+
+/* Quita los estilos de estilos.css para los elementos <a> en eventos*/
+div.texto a:active,
+div.texto a:focus,
+div.texto a:hover { 
+	color: rgba(102,0,0,1)!important;
+	color: rgb(102,0,0)!important;
+}
+
+/* Estilos para el contenedor de los botones */
+div.texto div#contenedor-btn-term-term {
+	background: rgba(0,0,0,.4)!important;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 3px;
+	display: block; 
+	height: 50px;
+    margin: 0;
+    opacity: .2;
+    padding: 0;
+    position: fixed; right: 1%; top: 1%;
+    transition: opacity .5s;
+    width: 100px;
+	z-index: 100;
+}
+
+div.texto div#contenedor-btn-term-term:active,
+div.texto div#contenedor-btn-term-term:focus,
+div.texto div#contenedor-btn-term-term:hover { opacity: 1!important; }
+
+/* Estilos comunes para los botones de terminos.html */
+div.texto div#contenedor-btn-term-term button.term-btn { 
+	border: 0;
+	font-family: "pt_serifregular"!important;
+	height: 25px;
+	position: absolute; top: 15px;
+	width: 25px;
+	z-index: 100;
+}
+
+/* Estilos para eventos hover y active sobre todos los botones */
+div.texto div#contenedor-btn-term-term button.term-btn:active,
+div.texto div#contenedor-btn-term-term button.term-btn:focus { top: 15px; }
+div.texto div#contenedor-btn-term-term button.term-btn:hover { top: 16px; }
+
+/* Estilos específicos para el botón imprimir */
+div.texto div#contenedor-btn-term-term button#btn-imprimir-term-term {
+	background: url("../img/icons/imprimir.png") center no-repeat;
+	background-size: 25px 25px;
+	/*position: absolute;*/ right: 58px;
+}
+
+/* Estilos específicos para el botón volver */
+div.texto div#contenedor-btn-term-term button#btn-volver-term-term {
+	background: url("../img/icons/volver.png") center no-repeat;
+	background-size: 25px 25px;
+	/*position: absolute;*/ right: 15px;
+}
+
+/* Estilos para los títulos */
+div.texto h2,
+div.texto h3 { 
+	border-bottom: 1px solid rgba(102,0,0,1);
+	font-weight: 100;
+	margin: 15px 0 5px;
+	text-align: left;	
+	width: 80%;
+}
+
+/* Estilos para el texto */
+div.texto p { text-align: left; }
+
+
+/*---------------------------------------------------------------------- 
+NO JAVASCRIPT */
+
+/* Estilos para el contenedor que se sobrepondrá a los elementos botón que quedan inservibles sin Javascript */
+div#contenedor-btn-noscript {
+	background-color: rgba(255,255,255,.8);
+	border: 1px solid rgba(0,0,0,1);
+    border-radius: 3px;
+	display: block; 
+	height: 50px;
+	line-height: 50px;
+    margin: 0;
+    padding: 0;
+    position: fixed; right: 1%; top: 1%;
+	text-align: center;
+	width: 100px;
+	z-index: 999999998;
+}
+
+/*---------------------------------------------------------------------- 
+FIN NO JAVASCRIPT */
