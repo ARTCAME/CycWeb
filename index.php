@@ -50,7 +50,7 @@
 
         /* Estilos para el mensaje flotante */
         span.mensaje-nojs { /* Todos */
-            background-color: rgba(255,255,255,.9);
+            background-color: rgba(255, 255, 255,.9);
             border-bottom: 1px solid rgba(0,0,0,1);
             border-top: 1px solid rgba(0,0,0,1);
             -webkit-box-shadow: 0 0 15px 0 rgba(0,0,0,.75); 
