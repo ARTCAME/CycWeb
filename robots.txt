@@ -1,0 +1,12 @@
+User-agent:*
+Disallow: /1958/
+Disallow: /parking/
+Disallow: /art_parking/
+Disallow: /html/auxiliar/*
+Disallow: /img/logos/*
+Disallow: /img/iconos/*
+Disallow: /img/handmade/*
+Disallow: /img/404aux/*
+Disallow: /img/fondos/*
+Disallow: /img/cargandoHD.gif
+Sitemap: http://www.charcuteriacyc.es/sitemap.xml

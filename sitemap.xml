@@ -1,0 +1,197 @@
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+<urlset xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" 
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>http://www.charcuteriacyc.es/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>http://www.charcuteriacyc.es/?p=inicio</loc>
+    <priority>1.0</priority>
+    <!--<image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Jamones_Aragon_reservaHD.jpg</image:loc>
+      <image:caption>Jamones</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Surtido_cestas_lotesHD.jpg</image:loc>
+      <image:caption>Lotes, cestas y regalos</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Adobos_Vientos_BuqueHD.jpg</image:loc>
+      <image:caption>Adobos</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Vinos_surtidosHD.jpg</image:loc>
+      <image:caption>Vinos y espumosos, cava y champagne</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Escaparate_Navidad_2017-2018HD.jpg</image:loc>
+      <image:caption>Escaparate Navidad 2017-2018</image:caption>
+    </image:image>-->
+  </url>
+  <url>
+    <loc>http://www.charcuteriacyc.es/?p=contacto</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>http://www.charcuteriacyc.es/?p=productos</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://www.charcuteriacyc.es/?p=galeria</loc>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Nuestra_tiendaHD.jpg</image:loc>
+      <image:caption>La tienda desde el exterior</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Adobos_Vientos_BuqueHD.jpg</image:loc>
+      <image:caption>Adobos</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Jamon_Marcial2HD.jpg</image:loc>
+      <image:caption>Gran variedad de jamones</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Miel_pirineo_RomeroHD.jpg</image:loc>
+      <image:caption>Infinitas variedad de conservas</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/EquipoHD.jpg</image:loc>
+      <image:caption>El equipo</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Regalos_unicosHD.jpg</image:loc>
+      <image:caption>Surtidos navideños</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/RegalosHD.jpg</image:loc>
+      <image:caption>Regalos</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Conservas_surtidasHD.jpg</image:loc>
+      <image:caption>Diversos tipos de conservas</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Ebro_Pilar_Puente_PiedraHD.jpg</image:loc>
+      <image:caption>El río Ebro y el Puente de Piedra</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Legumbres_selectas_SerranoHD.jpg</image:loc>
+      <image:caption>Todo tipo de legumbres</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Equipo_nosotrosHD.jpg</image:loc>
+      <image:caption>Nosotros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Vinos_surtidosHD.jpg</image:loc>
+      <image:caption>Variedades de vino</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Escaparate_Pilar_2017HD.jpg</image:loc>
+      <image:caption>Escaparate fiestas del Pilar 2017</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Jamones_Aragon_reservaHD.jpg</image:loc>
+      <image:caption>Gran surtido de jamones</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Quesos_cuñaHD.jpg</image:loc>
+      <image:caption>Quesos surtidos</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Lotes_regalos_cestasHD.jpg</image:loc>
+      <image:caption>Lotes, cestas y regalos</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Picoteo_patatasHD.jpg</image:loc>
+      <image:caption>Entrantes variados</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Conservas_entremesesHD.jpg</image:loc>
+      <image:caption>Conservas y entremeses</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Embutidos_surtidosHD.jpg</image:loc>
+      <image:caption>Embutidos de la máxima calidad</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Jamones_Aragon_reserva2HD.jpg</image:loc>
+      <image:caption>Jamón</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Quesos_sabores_surtidosHD.jpg</image:loc>
+      <image:caption>Quesos</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Escaparate_Navidad_2017-2018HD.jpg</image:loc>
+      <image:caption>Escaparate de Navidad 2017-2018</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Cestas_lotes_regalosHD.jpg</image:loc>
+      <image:caption>Lotes y regalos navideños</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Cigarrillos_Tolosa_EceizaHD.jpg</image:loc>
+      <image:caption>Dulces</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Vinos_cavas_espumososHD.jpg</image:loc>
+      <image:caption>Bebidas surtidas</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Quesos_cuña_surtidosHD.jpg</image:loc>
+      <image:caption>Quesos para todos los paladares</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Champagne_MoetHD.jpg</image:loc>
+      <image:caption>Variedades de champagne</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Aceite_SalduviaHD.jpg</image:loc>
+      <image:caption>Aceites</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Surtido_cestas_lotesHD.jpg</image:loc>
+      <image:caption>Lotes únicos</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Jamon_MarcialHD.jpg</image:loc>
+      <image:caption>Jamón</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Quesos_surtidosHD.jpg</image:loc>
+      <image:caption>Quesos</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Lotes_unicosHD.jpg</image:loc>
+      <image:caption>Lotes personalizados y únicos</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Conservas_marineras_surtidasHD.jpg</image:loc>
+      <image:caption>Gran surtido de conservas</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Jamones_Aragon_reservaHD.jpg</image:loc>
+      <image:caption>Jamon</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Cavas_champagne_surtidosHD.jpg</image:loc>
+      <image:caption>Magnífico surtido de vinos, espumosos, cavas y champagne</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>http://www.charcuteriacyc.es/img/galeria/Cestas_NavidadHD.jpg</image:loc>
+      <image:caption>Cestas de Navidad</image:caption>
+    </image:image>
+  </url>
+  <!--<url>
+    <loc>http://www.charcuteriacyc.es/html/auxiliar/galeria-embed.html</loc>
+  </url>
+  <url>
+    <loc>http://www.charcuteriacyc.es/html/auxiliar/terminos.html</loc>
+    <priority>0.1</priority>
+  </url>-->
+</urlset> -->

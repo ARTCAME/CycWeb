@@ -1,0 +1,341 @@
+tar -cvpzf "/home/jxlcvuub/backup/backup$(date -u +\%Y\%m\%dT\%H\%M\%S).tar.gz" "/home/jxlcvuub/public_html"
+
+tar -cvpzf /home/jxlcvuub/backup/backup$(date + \%Y\%m\%dT\%H\%M\%S).tar.gz /home/jxlcvuub/public_html
+
+ tar czpf /home/jxlcvuub/backup/backup$(date + \%Y\%m\%dT\%H\%M\%S).tar.gz /home/jxlcvuub/public_html
+
+ tar czpf /home/jxlcvuub/backup/backup.tar.gz /home/jxlcvuub/public_html
+
+ tar -cvpzf /home/jxlcvuub/backup/files.tar.gz /home/jxlcvuub/public_html 
+
+tar czf "~/backup/backup_`date +%Y_%m_%d`.tgz" "~/public_html"
+
+tar czf /home/jxlcvuub/backup/backup-`date +%Y_%m_%d`.tgz /home/jxlcvuub/backup/public_html
+
+tar czf /home/jxlcvuub/backup/backup-'date +%Y_%m_%d'.tar.gz /home/jxlcvuub/backup/public_html
+
+cd "/home/jxlcvuub"; php "backup.php";
+cd "/home/jxlcvuub"; "backup.php";
+
+tar czf ~/backup/backup_`date +%d_%m_%Y`.tgz ~/public_html
+
+tar czf "$HOME/backup/backup_$(date+%Y_%m_%d).tgz" "$HOME/public_html/"
+
+tar -cvpzf "/home/jxlcvuub/backup/backup$(date -u +\%Y\%m\%d\%H\%M\%S)".tar.gz "/home/jxlcvuub/public_html"
+
+tar -cvpzf "$HOME/backup/backup$(date -u +\%Y\%m\%d\%H\%M\%S)".tar.gz "$HOME/public_html"
+
+tar -cvpzf "$HOME/backup/backup$(date -u +\%Y\%m\%d\%H\%M\%S)".tar.gz "$HOME/public_html/"
+
+cd "$HOME/backup"; tar czf "$HOME/backup/backup_.tgz" "$HOME/public_html/";
+
+$HOME/backup/backup.sh
+
+cd "$HOME/backup"; "backup.sh"; 
+
+cd "$HOME/backup/"; "$HOME/backup/backup.sh";
+
+cd "/"; bash "backup.sh";
+cd "/"; bash "$HOME/backup.sh";
+
+cd "/"; echo "hello" >> "text.txt";
+cd "/$HOME"; echo "hello" >> "text.txt";
+
+cd "/$HOME"; bash "backup.sh";
+
+bash "/backup.sh";
+
+"/usr/bin/php" -f "$HOME/backup.php"
+
+"/usr/local/bin/php" -f "$HOME/backup.php" 
+
+"/opt/cpanel/ea-php56/root/usr/bin/php" -f "$HOME/backup.php"
+
+"/opt/cpanel/ea-php56/root/usr/bin/php" -f $HOME/backup.php
+
+cd "/opt/cpanel/ea-php56/root/usr/bin/"; php -f "$HOME/backup.php"; 
+
+cd "/opt/cpanel/ea-php56/root/usr/bin/"; php -f $HOME/backup.php;
+
+/bin/sh "$HOME/backup.sh";
+
+cd /; /bin/bash "$HOME/backup.sh"; 
+
+cd $HOME; "/opt/cpanel/ea-php56/root/usr/bin/php" -f "/backup.php"; 
+
+cd $HOME; "/opt/cpanel/ea-php56/root/usr/bin/php" -f "backup.php"; 
+
+cd $HOME; "/opt/cpanel/ea-php56/root/usr/local/bin/php" -f "backup.php"; 
+
+cd $HOME; "/usr/bin/php" -f "backup.php"; 
+
+cd $HOME; "/usr/local/bin/php" -f "backup.php"; 
+
+/usr/bin/php -q -d safe_mode=Off  $HOME/backup.php;
+
+/opt/cpanel/ea-php56/usr/bin/php-cgi -f  $HOME/backup.php;
+
+/opt/cpanel/ea-php56/root/usr/bin/php-cgi -f  $HOME/backup.php;
+
+/opt/cpanel/ea-php56/root/usr/bin/php-cgi /backup.php;
+
+/opt/cpanel/ea-php56/root/usr/bin/php-cgi backup.php;
+
+/opt/cpanel/ea-php56/root/usr/bin/php-cgi /home/jxlcvuub/backup.php;
+
+cd "/home/jxlcvuub"; /opt/cpanel/ea-php56/root/usr/bin/php-cgi /backup.php; 
+
+--------------------------------
+--------------------------------
+--------------------------------
+--------------------------------
+--------------------------------
+--------------------------------
+
+----------------
+archivo en /home/jxlcvuub/backup.php
+----------------
+
+php /home/jxlcvuub/backup.php;
+
+Status: 404 Not Found
+Content-type: text/html; charset=UTF-8
+
+No input file specified.
+
+----------------
+
+php "/home/jxlcvuub/backup.php";
+
+Status: 404 Not Found
+Content-type: text/html; charset=UTF-8
+
+No input file specified.
+
+----------------
+
+cd "/"; php /home/jxlcvuub/backup.php;
+
+Status: 404 Not Found
+Content-type: text/html; charset=UTF-8
+
+No input file specified.
+
+----------------
+
+cd "/"; php "/home/jxlcvuub/backup.php";
+
+Status: 404 Not Found
+Content-type: text/html; charset=UTF-8
+
+No input file specified.
+
+----------------
+
+cd "/"; php -f /home/jxlcvuub/backup.php;
+
+No input file specified.
+
+----------------
+
+cd "/home/jxlcvuub"; php /home/jxlcvuub/backup.php;
+
+Status: 404 Not Found
+Content-type: text/html; charset=UTF-8
+
+No input file specified.
+
+----------------
+
+php -f /home/jxlcvuub/backup.php;
+
+No input file specified.
+
+----------------
+
+php -f "/home/jxlcvuub/backup.php";
+
+No input file specified.
+
+----------------
+
+/opt/cpanel/ea-php56/root/usr/bin/php-cgi /home/jxlcvuub/backup.php;
+
+Status: 404 Not Found
+Content-type: text/html; charset=UTF-8
+
+No input file specified.
+
+----------------
+
+/opt/cpanel/ea-php56/root/usr/bin/php-cgi "/home/jxlcvuub/backup.php";
+
+Status: 404 Not Found
+Content-type: text/html; charset=UTF-8
+
+No input file specified.
+
+----------------
+
+/opt/cpanel/ea-php56/root/usr/bin/php-cgi -f /home/jxlcvuub/backup.php;
+
+No input file specified.
+
+----------------
+
+/opt/cpanel/ea-php56/root/usr/bin/php-cgi -f "/home/jxlcvuub/backup.php";
+
+No input file specified.
+
+----------------
+
+/opt/cpanel/ea-php56/root/usr/bin/php-cgi -f -q -d "/home/jxlcvuub/backup.php";
+
+No input file specified.
+
+----------------
+
+/usr/bin/php /home/jxlcvuub/backup.php;
+
+Status: 404 Not Found
+Content-type: text/html; charset=UTF-8
+
+No input file specified.
+
+----------------
+
+/usr/bin/php "/home/jxlcvuub/backup.php";
+
+Status: 404 Not Found
+Content-type: text/html; charset=UTF-8
+
+No input file specified.
+
+----------------
+
+/usr/bin/php -f /home/jxlcvuub/backup.php;
+
+No input file specified.
+
+----------------
+
+/usr/bin/php -f "/home/jxlcvuub/backup.php";
+
+No input file specified.
+
+----------------
+
+/usr/local/bin/php /home/jxlcvuub/backup.php;
+
+Could not open input file: /home/jxlcvuub/backup.php
+
+----------------
+
+/usr/local/bin/php "/home/jxlcvuub/backup.php";
+
+Could not open input file: /home/jxlcvuub/backup.php
+
+----------------
+
+/usr/local/bin/php -f /home/jxlcvuub/backup.php;
+
+Could not open input file: /home/jxlcvuub/backup.php
+
+----------------
+
+/usr/local/bin/php -f "/home/jxlcvuub/backup.php";
+
+Could not open input file: /home/jxlcvuub/backup.php
+
+----------------
+
+----------------
+archivo en /home/jxlcvuub/public_html/backup.php
+----------------
+
+cd "/home/jxlcvuub/public_html"; php -f backup.php;
+cd /home/jxlcvuub/public_html; php -f backup.php;
+
+/usr/local/cpanel/bin/jailshell: línea 0: cd: /home/jxlcvuub/public_html: No existe el fichero o el directorio No input file specified.
+
+----------------
+
+/usr/bin/php -q /home/jxlcvuub/public_html/backup.php
+
+No input file specified.
+
+----------------
+
+cd /home/jxlcvuub/public_html
+
+/usr/local/cpanel/bin/jailshell: línea 0: cd: /home/jxlcvuub/public_html: No existe el fichero o el directorio
+
+----------------
+
+cd /home/jxlcvuub/public_html/
+
+/usr/local/cpanel/bin/jailshell: línea 0: cd: /home/jxlcvuub/public_html/: No existe el fichero o el directorio
+
+----------------
+
+curl "http://charcuteriacyc.es/backup.php"
+
+----------------
+
+cd ..; cd /home/jxlcvuub/public_html;
+
+/usr/local/cpanel/bin/jailshell: línea 0: cd: /home/jxlcvuub/public_html: No existe el fichero o el directorio
+
+----------------
+
+cd /home/jxlcvuub 
+cd /home/jxlcvuub; ls;
+No output mail ¿NO ERROR?
+
+----------------
+
+cd /home/jxlcvuub/www;
+
+/usr/local/cpanel/bin/jailshell: línea 0: cd: /home/jxlcvuub/www: No existe el fichero o el directorio
+ 
+----------------
+
+cd /home/jxlcvuub; php -f /backup.php;
+cd /home/jxlcvuub; php -f backup.php;
+cd /home/jxlcvuub; php -f "backup.php";
+
+No input file specified.
+
+----------------
+
+cd /home/jxlcvuub/public_html 
+
+/usr/local/cpanel/bin/jailshell: línea 0: cd: /home/jxlcvuub/public_html: No existe el fichero o el directorio
+
+----------------
+
+php -f /home/jxlcvuub/backup.php
+php -f -q "/home/jxlcvuub/backup.php" 
+
+----------------
+
+/usr/local/bin/php /home/jxlcvuub/backup.php
+
+Could not open input file: /home/jxlcvuub/backup.php
+
+----------------
+
+/usr/local/bin/php -q -f /home/jxlcvuub/backup.php /home/jxlcvuub/
+Could not open input file: /home/jxlcvuub/backup.php
+
+----------------
+
+curl "http://www.charcuteriacyc.es/test.php"
+funciona
+
+
+----------------
+----------------
+----------------
+----------------
+----------------
