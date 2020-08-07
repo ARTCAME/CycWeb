@@ -5,6 +5,7 @@
     </script>
     <?php
         // Si no hay Javascript
+        /* HOLA XOXO */
         if (preg_match("/MSIE/",$_SERVER['HTTP_USER_AGENT'])) header("Location: html/auxiliar/precursorbrowser.html");
     ?>
 <![endif]-->
