@@ -19,7 +19,7 @@
     <!-- Prevenimos zoom -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--, user-scalable=no"-->
     <link id="favicon" rel="shortcut icon" href="img/logos/favicon.png" type="image/png">
-    <title>Charcutería C&amp;C - Tienda de jamones, charcutería en Zaragoza</title>
+    <title>Xarcutería C&amp;C - Tienda de jamones, charcutería en Zaragoza</title>
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
     <link rel="stylesheet" type="text/css" href="css/imprimir.css" media="print">
     <script src="js/main.js"></script>
